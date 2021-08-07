@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.mooding.modules.system.mapper.SysUserPostMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="cn.mooding.modules.system.entity.SysUserPost">
+        <id column="user_id" property="userId" />
+        <result column="post_id" property="postId" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        user_id, post_id
+    </sql>
+    <insert id="batchUserPost">
+        insert into t_sys_user_post(user_id, post_id) values
+        <foreach item="item" index="index" collection="list" separator=",">
+            (#{item.userId},#{item.postId})
+        </foreach>
+    </insert>
+</mapper>

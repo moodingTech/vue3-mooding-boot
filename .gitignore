@@ -1,0 +1,71 @@
+##/项目课件/
+## ide
+**/.idea
+*.iml
+
+## backend
+**/target
+**/logs
+
+## front
+**/*.lock
+
+.idea/
+/target/
+*.zip
+.classpath
+.project
+.settings     
+ ##filter databfile、sln file##
+*.mdb  
+*.ldb  
+*.sln   
+##class file##
+*.com  
+*.class  
+*.dll  
+*.exe  
+*.o  
+*.so 
+# compression file
+*.7z  
+*.dmg  
+*.gz  
+*.iso  
+*.jar  
+*.rar  
+*.tar  
+*.zip  
+*.via
+*.tmp
+*.err
+# OS generated files #  
+.DS_Store  
+.DS_Store?  
+._*  
+.class
+.Spotlight-V100  
+.Trashes  
+Icon?  
+ehthumbs.db  
+Thumbs.db 
+=======
+# Build and Release Folders
+bin-debug/
+bin-release/
+[Oo]bj/
+[Bb]in/
+
+# Other files and folders
+.settings/
+
+# Executables
+*.swf
+*.air
+*.ipa
+*.apk
+
+# Project files, i.e. `.project`, `.actionScriptProperties` and `.flexProperties`
+# should NOT be excluded as they contain compiler settings and other important
+# information for Eclipse / Flash Builder.
+
