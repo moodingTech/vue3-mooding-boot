@@ -3566,10 +3566,72 @@ public class LogAspect {
 [root@VM-0-11-centos ~]# cd /home/mooding
 [root@VM-0-11-centos mooding]# nohup  java -jar mooding-module-system-1.0-SNAPSHOT.jar --spring.profiles.active=prod  > Log.log 2>&1 & 
 [1] 7161
-
+[root@VM-0-11-centos mooding]# nohup  java -jar mooding-module-system-1.0-SNAPSHOT.jar --spring.profiles.active=dev  > Log.log 2>&1 & 
 ```
 
+# 十一、git使用
 
+统一远程和本地的仓库名称即可
+
+Git 版本更新（Windows下）
+
+```
+直接打开git-bash.exe，输入git update-git-for-windows
+```
+
+1、把本地的 master 仓库名称修改为远端的 main
+
+```
+重命名命令： git branch -m oldBranchName newBranchName
+```
+
+查看用户名
+
+```
+git config user.name
+```
+
+查看用户邮箱
+
+```
+git config user.email
+```
+
+修改用户名和邮箱的命令
+
+```
+git config --globaluser.name"Your_username"
+
+git config --globaluser.email"Your_email"
+```
+
+a)、git branch -v (查看本地库中的所有分支)
+
+b)、git branch dev (创建一个新的分支)
+
+c)、git checkout dev (切换分支)
+
+d)、分支合并
+
+i)、切换到接收修改的分支
+
+git checkout master
+
+ii)、执行merge命令
+
+git merge dev
+
+
+
+```
+$ git remote -v 显示当前的地址
+
+修改远程仓库地址
+$ git remote set-url origin git@github.com:youname/warehousename.git
+
+$ git push -u origin master
+
+```
 
 
 

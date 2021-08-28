@@ -470,4 +470,34 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
     {
         return StringUtils.startsWithAny(link, Constants.HTTP, Constants.HTTPS);
     }
+
+    /**
+     * 不重复的验证码
+     *
+     * @param i
+     * @return
+     */
+    public static String codeGen(int i) {
+        char[] codeSequence = {'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I',
+                'O', 'P', 'L', 'K', 'J', 'H', 'G', 'F', 'D',
+                'S', 'A', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', '1',
+                '2', '3', '4', '5', '6', '7', '8', '9', '0'};
+        Random random = new Random();
+        StringBuilder stringBuilder = new StringBuilder();
+        int count = 0;
+        while (true) {
+            // 随机产生一个下标，通过下标取出字符数组中对应的字符
+            char c = codeSequence[random.nextInt(codeSequence.length)];
+            // 假设取出来的字符在动态字符中不存在，代表没有重复的
+            if (stringBuilder.indexOf(c + "") == -1) {
+                stringBuilder.append(c);
+                count++;
+                //控制随机生成的个数
+                if (count == i) {
+                    break;
+                }
+            }
+        }
+        return stringBuilder.toString();
+    }
 }

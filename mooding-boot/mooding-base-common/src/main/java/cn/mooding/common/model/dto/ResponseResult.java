@@ -32,21 +32,15 @@ public class ResponseResult<T> implements Serializable {
     @ApiModelProperty(value = "返回处理消息")
     private String message = "操作成功！";
 
-    public long getTimestamp() {
-        return timestamp;
-    }
-
-    public void setTimestamp(long timestamp) {
-        this.timestamp = timestamp;
-    }
-
     /**
      * 时间戳
      */
     @ApiModelProperty(value = "时间戳")
     private long timestamp = System.currentTimeMillis();
 
+
     private T data;
+
 
     public ResponseResult() {
         this.success = true;
@@ -104,9 +98,6 @@ public class ResponseResult<T> implements Serializable {
         return setHttpCodeEnum(enums, message, false);
     }
 
-    public static ResponseResult setHttpCodeEnum(HttpCodeEnum enums) {
-        return okResult(enums.getCode(), enums.getMessage());
-    }
 
     private static ResponseResult setHttpCodeEnum(HttpCodeEnum enums, String message) {
         return okResult(enums.getCode(), message);
@@ -116,21 +107,15 @@ public class ResponseResult<T> implements Serializable {
         return okResult(enums.getCode(), message);
     }
 
-    public ResponseResult<?> error(Integer code, String msg) {
+    public ResponseResult<T> error(Integer code, String msg) {
         this.code = code;
         this.message = msg;
         this.success = false;
         return this;
     }
 
-    public ResponseResult<?> ok(Integer code, T data) {
-        this.code = code;
-        this.data = data;
-        this.success = true;
-        return this;
-    }
 
-    public ResponseResult<?> ok(Integer code, T data, String msg) {
+    public ResponseResult<T> ok(Integer code, T data, String msg) {
         this.code = code;
         this.data = data;
         this.message = msg;
@@ -170,4 +155,11 @@ public class ResponseResult<T> implements Serializable {
         this.data = data;
     }
 
+    public long getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(long timestamp) {
+        this.timestamp = timestamp;
+    }
 }

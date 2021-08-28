@@ -46,7 +46,8 @@ spring:
       web-stat-filter:
         enabled: true
     dynamic:
-      druid: # 全局druid参数，绝大部分值和默认保持一致。(现已支持的参数如下,不清楚含义不要乱设置)
+      druid:
+        # 全局druid参数，绝大部分值和默认保持一致。(现已支持的参数如下,不清楚含义不要乱设置)
         # 连接池的配置信息
         # 初始化大小，最小，最大
         initial-size: 5
@@ -77,10 +78,11 @@ spring:
           driver-class-name: com.mysql.cj.jdbc.Driver
           # 多数据源配置
           #multi-datasource1:
-          #url: jdbc:mysql://localhost:3306/jeecg-boot2?useUnicode=true&characterEncoding=utf8&autoReconnect=true&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
+          #url: jdbc:mysql://localhost:3306/mooding2?useUnicode=true&characterEncoding=utf8&autoReconnect=true&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
           #username: root
           #password: root
           #driver-class-name: com.mysql.cj.jdbc.Driver
+  #redis 配置
   ##默认密码为空
   redis:
     host: 49.235.52.198
@@ -99,6 +101,19 @@ spring:
     timeout: 5000
     #默认是索引为0的数据库
     database: 0
+  # 邮箱配置
+  mail:
+    host: smtp.126.com
+    username: moodingtech@126.com
+    password: HJDNJUMSGYKYDGL
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+
 #mybatis plus 设置
 mybatis-plus:
 #  mapper-locations: classpath:mapper/*.xml
@@ -114,7 +129,7 @@ mybatis-plus:
       table-underline: true
   configuration:
     # 这个配置会将执行的sql打印出来，在开发或测试的时候可以用
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    # log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
     # 返回类型为Map,显示null对应的字段
     call-setters-on-nulls: true
 #Mybatis输出sql日志
@@ -124,4 +139,3 @@ logging:
 #enable swagger
 swagger:
   swaggerEnabled: true
-

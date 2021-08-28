@@ -53,4 +53,18 @@ public interface ISysUserService extends IService<SysUser> {
      * @return 结果
      */
     public String importUser(List<SysUser> userList, Boolean isUpdateSupport, String operName);
+    /**
+     * 重置用户密码
+     *
+     * @param user 用户信息
+     * @return 结果
+     */
+    public int resetPwd(SysUser user);
+    /**
+     * 修改用户状态
+     *
+     * @param user 用户信息
+     * @return 结果
+     */
+    public int updateUserStatus(SysUser user);
 }

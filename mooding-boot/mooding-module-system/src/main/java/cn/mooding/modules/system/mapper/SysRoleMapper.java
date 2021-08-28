@@ -16,6 +16,6 @@ import java.util.List;
  * @since 2021-03-21
  */
 public interface SysRoleMapper extends BaseMapper<SysRole> {
-    @Select("select a.* from t_sys_role a left join t_sys_user_role b on a.role_id= b.role_id where b.user_id=#{userId} ")
+    @Select("select a.* from t_sys_role a left join t_sys_user_role b on a.role_id= b.role_id where a.del_flag<>2 and b.user_id=#{userId}  ")
     public List<SysRole> getRolesByUserId(@Param("userId") Long userId);
 }

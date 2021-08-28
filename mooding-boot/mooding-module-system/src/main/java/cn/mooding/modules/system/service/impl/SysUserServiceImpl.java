@@ -352,4 +352,27 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
         }
         return successMsg.toString();
     }
+
+    /**
+     * 修改用户状态
+     *
+     * @param user 用户信息
+     * @return 结果
+     */
+    @Override
+    public int updateUserStatus(SysUser user) {
+        return baseMapper.updateUserStatus(user.getUserId(), user.getStatus());
+    }
+
+    /**
+     * 重置用户密码
+     *
+     * @param user 用户信息
+     * @return 结果
+     */
+    @Override
+    public int resetPwd(SysUser user) {
+        String password = configService.selectConfigByKey("sys.user.initPassword");
+        return baseMapper.resetPwd(user.getUserId(), SecurityUtils.encryptPassword(password));
+    }
 }

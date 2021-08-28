@@ -24,14 +24,35 @@ public interface SysUserMapper extends BaseMapper<SysUser> {
      * @param userName 用户名
      * @return 用户对象信息
      */
-    @Select("select * from t_sys_user a where a.user_name= #{userName}")
+    @Select("select * from t_sys_user a where del_flag<>2 and a.user_name= #{userName}")
     public SysUser selectUserByUserName(@Param("userName") String userName);
 
     /**
      * 修改登陆信息
-     * @param userId 用户id
-     * @param loginIP   登陆Ip
+     *
+     * @param userId  用户id
+     * @param loginIP 登陆Ip
      */
-    @Update("set t_sys_user set login_ip =#{loginIP} ,login_date=now() where user_id=#{userId}")
+    @Update("update t_sys_user set login_ip =#{loginIP} ,login_date=now() where user_id=#{userId}")
     public int updateUserLoginInfo(@Param("userId") Long userId, @Param("loginIP") String loginIP);
+
+    /**
+     * 修改用户用户状态
+     *
+     * @param userId 用户id
+     * @param status 用户状态
+     * @return 结果
+     */
+    @Update("update t_sys_user set status =#{status}  where user_id=#{userId} ")
+    public int updateUserStatus(@Param("userId") Long userId, @Param("status") String status);
+
+    /**
+     * 重置用户密码
+     *
+     * @param userId   用户id
+     * @param password 新密码
+     * @return 结果
+     */
+    @Update("update t_sys_user set password =#{password}  where user_id=#{userId}")
+    public int resetPwd(@Param("userId") Long userId, @Param("password") String password);
 }

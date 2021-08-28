@@ -233,7 +233,7 @@ export default {
           .catch(() => {});
       } else if (path === "wareHouse") {
 
-        window.open("https://gitee.com/dlisnow/mooding-boot");
+        window.open("https://gitee.com/moodingtech/vue3-mooding-boot");
       } else {
         router.push(path);
       }

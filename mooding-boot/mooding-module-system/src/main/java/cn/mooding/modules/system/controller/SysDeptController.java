@@ -53,9 +53,9 @@ public class SysDeptController {
     @GetMapping("/list")
     @PreAuthorize("@md.hasPermi('system:dept:list')")
     @ApiOperation(value = "系统管理-部门管理-获取部门列表", notes = "")
-    @Log(title = "系统部门-获取部门列表", businessType = BusinessType.SELECT)
     public ResponseResult list(SysDept dept) {
         QueryWrapper<SysDept> queryWrapper = QueryGenerator.initQueryWrapper(dept);
+        queryWrapper.lambda().eq(SysDept::getDelFlag, 0);
         List<SysDept> depts = deptService.selectDeptList(queryWrapper);
         return ResponseResult.okResult(depts);
     }
@@ -66,7 +66,6 @@ public class SysDeptController {
     @GetMapping("/list/exclude/{deptId}")
     @PreAuthorize("@md.hasPermi('system:dept:list')")
     @ApiOperation(value = "系统管理-部门管理-查询部门列表（排除节点）", notes = "")
-    @Log(title = "系统部门-查询部门列表", businessType = BusinessType.SELECT)
     public ResponseResult excludeChild(@PathVariable(value = "deptId", required = false) Long deptId) {
         QueryWrapper<SysDept> wrapper = new QueryWrapper<SysDept>();
         //限制部门状态为正常
@@ -102,7 +101,6 @@ public class SysDeptController {
     @GetMapping(value = "/roleDeptTreeselect/{roleId}")
     @PreAuthorize("@md.hasPermi('system:dept:list')")
     @ApiOperation(value = "加载对应角色部门列表树", notes = "")
-    @Log(title = "系统管理-部门管理-角色对应部门列表树", businessType = BusinessType.SELECT)
     public ResponseResult roleDeptTreeselect(@PathVariable("roleId") Long roleId) {
         QueryWrapper<SysDept> wrapper = new QueryWrapper<SysDept>();
         //限制部门状态为正常
@@ -122,7 +120,6 @@ public class SysDeptController {
     @GetMapping(value = "/{deptId}")
     @PreAuthorize("@md.hasPermi('system:dept:query')")
     @ApiOperation(value = "根据部门编号查询详细信息", notes = "")
-    @Log(title = "系统管理-部门管理-部门Id查询", businessType = BusinessType.SELECT)
     public ResponseResult getInfo(@PathVariable Long deptId) {
         return ResponseResult.okResult(deptService.getById(deptId));
     }

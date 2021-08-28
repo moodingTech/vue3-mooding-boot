@@ -11,13 +11,6 @@
         <el-row :gutter="35">
           <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12" class="mb20">
             <el-form-item label="上级菜单" prop="parentId">
-              <!-- <treeselect
-                v-model="ruleForm.parentId"
-                :options="menuOptions"
-                :normalizer="normalizer"
-                :show-count="true"
-                placeholder="选择上级菜单"
-              /> -->
               <el-cascader
                 v-model="ruleForm.parentId"
                 :options="menuOptions"

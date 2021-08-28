@@ -24,10 +24,10 @@ mooding:
   copyrightYear: 2021
   # 实例演示开关
   demoEnabled: true
-  # 文件路径 示例（ Windows配置D:/ruoyi/uploadPath，Linux配置 /home/ruoyi/uploadPath）
+  # 文件路径 示例（ Windows配置D:/mooding/uploadPath，Linux配置 /home/mooding/uploadPath）
   profile: D:/mooding/uploadPath
   # 获取ip地址开关
-  addressEnabled: false
+  addressEnabled: true
   # 验证码类型 math 数组计算 char 字符验证
   captchaType: math
 
@@ -44,4 +44,3 @@ token:
   # 令牌有效期（默认30分钟）
   expireTime: 120
 
-# 项目相关配置

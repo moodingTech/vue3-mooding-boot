@@ -39,18 +39,14 @@ const permissionRouteModule: Module<PermissionRoute, RootStateTypes> = {
             return new Promise(resolve => {
                 // 向后端请求路由数据
                 getRouters().then((res: any) => {       
-                    // console.log("向后端请求路由数据1",JSON.stringify(res.data));             
                     const sdata = JSON.parse(JSON.stringify(res.data))
                     const rdata = JSON.parse(JSON.stringify(res.data))
-                    // console.log("向后端请求路由数据2",rdata);
                     const sidebarRoutes = filterAsyncRouter(sdata)
                     const rewriteRoutes = filterAsyncRouter(rdata, false, true)
                     
-                    // rewriteRoutes.push({path: '/:pathMatch(.*)*', redirect: '/404', hidden: true})                   
                     commit('SET_ROUTES', rewriteRoutes)
                     commit('SET_SIDEBAR_ROUTERS', staticRoutes[3].children.concat(sidebarRoutes))
                     commit('SET_DEFAULT_ROUTES', staticRoutes[3].children.concat(sidebarRoutes))
-                    // commit('SET_TOPBAR_ROUTES', staticRoutes[3].children.concat(sidebarRoutes))
                     commit('SET_TOPBAR_ROUTES', formatTwoStageRoutes(formatFlatteningRoutes(staticRoutes[3].children.concat(sidebarRoutes)))[0].children)
                     resolve(rewriteRoutes)
                 })
@@ -70,8 +66,6 @@ function filterAsyncRouter(asyncRouterMap: any, lastRouter = false, type = false
             if (route.component === 'Layout') {
                 route.component = Layout
             } else {
-                // route.component = loadView(route.component)
-                // console.log("组件特殊处理",dynamicImport(dynamicViewsModules, route.component as string));
                 route.component = dynamicImport(dynamicViewsModules, route.component as string)
 
             }
@@ -108,13 +102,6 @@ function filterChildren(childrenMap: any, lastRouter = false) {
     return children
 }
 
-// export const loadView = (view: string) => { // 路由懒加载
-//     // return (resolve: any) => require([`@/views/${view}`], resolve)
-//     return () => import('@/views/system/user/svgIcon.vue')
-//     var path = '@/views/' + view
-//     // return (resolve: any) => require([path], resolve)
-//     return () => import('@/views/' + view)
-// }
 
 // 获取目录下的 .vue 全部文件，参考 vite：import.meta.glob
 const dynamicViewsModules = import.meta.glob('../../views/**/*.{vue,tsx}');

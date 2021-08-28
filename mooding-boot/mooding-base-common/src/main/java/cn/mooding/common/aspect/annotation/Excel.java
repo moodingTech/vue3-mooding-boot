@@ -8,6 +8,7 @@ import java.math.BigDecimal;
 
 /**
  * 自定义导出Excel数据注解
+ *
  * @Author BlueFire
  * @Date 31/7/2021
  */
@@ -25,9 +26,14 @@ public @interface Excel {
     public String name() default "";
 
     /**
-     * 日期格式, 如: yyyy-MM-dd
+     * Date 日期格式, 如: yyyy-MM-dd
      */
     public String dateFormat() default "";
+
+    /**
+     * LocalDateTime 日期格式, 如: yyyy-MM-dd
+     */
+    public String localDateTimeFormat() default "";
 
     /**
      * 如果是字典类型，请设置字典的type值 (如: sys_user_sex)
@@ -109,18 +115,15 @@ public @interface Excel {
      */
     Align align() default Align.AUTO;
 
-    public enum Align
-    {
+    public enum Align {
         AUTO(0), LEFT(1), CENTER(2), RIGHT(3);
         private final int value;
 
-        Align(int value)
-        {
+        Align(int value) {
             this.value = value;
         }
 
-        public int value()
-        {
+        public int value() {
             return this.value;
         }
     }
@@ -130,34 +133,28 @@ public @interface Excel {
      */
     Type type() default Type.ALL;
 
-    public enum Type
-    {
+    public enum Type {
         ALL(0), EXPORT(1), IMPORT(2);
         private final int value;
 
-        Type(int value)
-        {
+        Type(int value) {
             this.value = value;
         }
 
-        public int value()
-        {
+        public int value() {
             return this.value;
         }
     }
 
-    public enum ColumnType
-    {
+    public enum ColumnType {
         NUMERIC(0), STRING(1), IMAGE(2);
         private final int value;
 
-        ColumnType(int value)
-        {
+        ColumnType(int value) {
             this.value = value;
         }
 
-        public int value()
-        {
+        public int value() {
             return this.value;
         }
     }
