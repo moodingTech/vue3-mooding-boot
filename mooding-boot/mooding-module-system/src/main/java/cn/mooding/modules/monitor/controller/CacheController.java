@@ -2,6 +2,8 @@ package cn.mooding.modules.monitor.controller;
 
 import cn.mooding.common.model.dto.ResponseResult;
 import cn.mooding.common.utils.string.StringUtils;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisCallback;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -20,12 +22,14 @@ import java.util.*;
  */
 @RestController
 @RequestMapping("/monitor/cache")
+@Api(tags = "系统缓存监控")
 public class CacheController {
     @Autowired
     private RedisTemplate<String, String> redisTemplate;
 
     @GetMapping()
     @PreAuthorize("@md.hasPermi('monitor:cache:list')")
+    @ApiOperation(value = "系统缓存监控信息", notes = "")
     public ResponseResult getInfo() throws Exception {
         Properties info = (Properties) redisTemplate.execute((RedisCallback<Object>) connection -> connection.info());
         Properties commandStats = (Properties) redisTemplate.execute((RedisCallback<Object>) connection -> connection.info("commandstats"));

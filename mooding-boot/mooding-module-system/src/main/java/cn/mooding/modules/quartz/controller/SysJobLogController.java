@@ -11,6 +11,8 @@ import cn.mooding.modules.quartz.service.ISysJobLogService;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -28,6 +30,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/monitor/jobLog")
+@Api(tags = "系统定时任务调度日志")
 public class SysJobLogController {
     @Autowired
     private ISysJobLogService jobLogService;
@@ -36,6 +39,7 @@ public class SysJobLogController {
      * 查询定时任务调度日志列表
      */
     @GetMapping("/list")
+    @ApiOperation(value = "分页查询定时任务日志列表", notes = "")
     public ResponseResult<IPage<SysJobLog>> list(@RequestParam(name = "pageNo", defaultValue = "1") Integer pageNo,
                                                  @RequestParam(name = "pageSize", defaultValue = "10") Integer pageSize, SysJobLog sysJobLog) {
         QueryWrapper<SysJobLog> queryWrapper = QueryGenerator.initQueryWrapper(sysJobLog);
@@ -49,6 +53,7 @@ public class SysJobLogController {
      * 根据调度编号获取详细信息
      */
     @GetMapping(value = "/{configId}")
+    @ApiOperation(value = "根据调度编号获取详细信息", notes = "")
     public ResponseResult getInfo(@PathVariable Long jobLogId) {
         return ResponseResult.okResult(jobLogService.getById(jobLogId));
     }
@@ -56,8 +61,9 @@ public class SysJobLogController {
     /**
      * 删除定时任务调度日志
      */
-    @Log(title = "定时任务调度日志", businessType = BusinessType.DELETE)
+    @Log(title = "定时任务调度日志-删除定时任务调度日志", businessType = BusinessType.DELETE)
     @DeleteMapping("/{jobLogIds}")
+    @ApiOperation(value = "删除定时任务调度日志", notes = "")
     public ResponseResult remove(@PathVariable Long[] jobLogIds) {
         return ResponseResult.okResult(jobLogService.removeByIds(Arrays.asList(jobLogIds)));
     }
@@ -65,10 +71,10 @@ public class SysJobLogController {
     /**
      * 清空定时任务调度日志
      */
-     @Log(title = "调度日志", businessType = BusinessType.CLEAN)
+    @Log(title = "调度日志-清空定时任务调度日志", businessType = BusinessType.CLEAN)
     @DeleteMapping("/clean")
-    public ResponseResult clean()
-    {
+    @ApiOperation(value = "清空定时任务调度日志", notes = "")
+    public ResponseResult clean() {
         jobLogService.cleanJobLog();
         return ResponseResult.okResult();
     }

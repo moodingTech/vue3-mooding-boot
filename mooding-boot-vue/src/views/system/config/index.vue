@@ -27,14 +27,6 @@
         />
       </el-form-item>
       <el-form-item label="参数键名" prop="configKey">
-        <!-- <el-input
-          v-model="queryParams.configKey"
-          placeholder="请输入参数键名"
-          clearable
-          size="small"
-          style="width: 240px"
-          @keyup.enter="handleQuery"
-        /> -->
          <md-input
           placeholder="请输入参数键名模糊查询"
           clearable
@@ -50,6 +42,7 @@
           placeholder="系统内置"
           clearable
           size="small"
+          style="width: 240px"
         >
           <el-option
             v-for="dict in typeOptions"

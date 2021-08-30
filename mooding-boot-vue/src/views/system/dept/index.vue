@@ -6,15 +6,9 @@
       ref="queryForm"
       :inline="true"
       v-show="showSearch"
+      label-width="68px"
     >
       <el-form-item label="部门名称" prop="deptName">
-        <!-- <el-input
-          v-model="queryParams.deptName"
-          placeholder="请输入部门名称"
-          clearable
-          size="small"
-          @keyup.enter="handleQuery"
-        /> -->
         <md-input
           placeholder="请输入部门名称模糊查询"
           clearable
@@ -24,12 +18,13 @@
           v-model="queryParams.deptName"
         />
       </el-form-item>
-      <el-form-item label="状态" prop="status">
+      <el-form-item label="状态" prop="status" >
         <el-select
           v-model="queryParams.status"
           placeholder="部门状态"
           clearable
           size="small"
+          style="width: 240px"
         >
           <el-option
             v-for="dict in statusOptions"
@@ -114,15 +109,20 @@
       </el-table-column>
     </el-table>
 
-     <!-- 添加或修改部门对话框 -->
+    <!-- 添加或修改部门对话框 -->
     <EditModule ref="editModuleRef" :title="title" />
   </div>
-
-
 </template>
 
 <script lang="ts">
-import { ref, toRefs, reactive, onMounted, getCurrentInstance,onUnmounted } from "vue";
+import {
+  ref,
+  toRefs,
+  reactive,
+  onMounted,
+  getCurrentInstance,
+  onUnmounted,
+} from "vue";
 import { ElMessageBox, ElMessage } from "element-plus";
 import { listDept, delDept } from "@/api/system/dept";
 import EditModule from "@/views/system/dept/component/editModule.vue";
@@ -138,7 +138,7 @@ export default {
       loading: true,
       // 显示搜索条件
       showSearch: true,
-       // 弹出层标题
+      // 弹出层标题
       title: "",
       // 部门表格树数据
       tableData: [] as any,
@@ -208,14 +208,14 @@ export default {
       proxy.getDicts("sys_normal_disable").then((response: any) => {
         state.statusOptions = response.data;
       });
-      proxy.mittBus.on('onEditDeptModule', (res: any) => {
-				handleQuery();
-			});
+      proxy.mittBus.on("onEditDeptModule", (res: any) => {
+        handleQuery();
+      });
     });
-    	// 页面卸载时
-		onUnmounted(() => {
-			proxy.mittBus.off('onEditDeptModule');
-		});
+    // 页面卸载时
+    onUnmounted(() => {
+      proxy.mittBus.off("onEditDeptModule");
+    });
     return {
       editModuleRef,
       handleQuery,

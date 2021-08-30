@@ -15,6 +15,8 @@ import cn.mooding.modules.system.entity.SysConfig;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.quartz.SchedulerException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -32,6 +34,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/monitor/job")
+@Api(tags = "系统定时任务调度")
 public class SysJobController {
     @Autowired
     private ISysJobService jobService;
@@ -45,6 +48,7 @@ public class SysJobController {
      * @return
      */
     @GetMapping("/list")
+    @ApiOperation(value = "分页查询定时任务列表", notes = "")
     public ResponseResult<IPage<SysJob>> list(@RequestParam(name = "pageNo", defaultValue = "1") Integer pageNo,
                                               @RequestParam(name = "pageSize", defaultValue = "10") Integer pageSize, SysJob sysJob) {
         QueryWrapper<SysJob> queryWrapper = QueryGenerator.initQueryWrapper(sysJob);
@@ -68,6 +72,7 @@ public class SysJobController {
      * 获取定时任务详细信息
      */
     @GetMapping(value = "/{jobId}")
+    @ApiOperation(value = "获取定时任务详细信息", notes = "")
     public ResponseResult getInfo(@PathVariable("jobId") Long jobId) {
         return ResponseResult.okResult(jobService.getById(jobId));
     }
@@ -75,8 +80,9 @@ public class SysJobController {
     /**
      * 新增定时任务
      */
-    @Log(title = "定时任务", businessType = BusinessType.INSERT)
+    @Log(title = "定时任务-新增定时任务", businessType = BusinessType.INSERT)
     @PostMapping
+    @ApiOperation(value = "新增定时任务", notes = "")
     public ResponseResult add(@RequestBody SysJob sysJob) throws SchedulerException, TaskException {
         if (!CronUtils.isValid(sysJob.getCronExpression())) {
             return ResponseResult.errorResult(HttpCodeEnum.PARAM_ERR, "cron表达式不正确");
@@ -87,8 +93,9 @@ public class SysJobController {
     /**
      * 修改定时任务
      */
-    @Log(title = "定时任务", businessType = BusinessType.UPDATE)
+    @Log(title = "定时任务-修改定时任务", businessType = BusinessType.UPDATE)
     @PutMapping
+    @ApiOperation(value = "修改定时任务", notes = "")
     public ResponseResult edit(@RequestBody SysJob sysJob) throws SchedulerException, TaskException {
         if (!CronUtils.isValid(sysJob.getCronExpression())) {
             return ResponseResult.errorResult(HttpCodeEnum.PARAM_ERR, "cron表达式不正确");
@@ -99,8 +106,9 @@ public class SysJobController {
     /**
      * 定时任务状态修改
      */
-    @Log(title = "定时任务", businessType = BusinessType.UPDATE)
+    @Log(title = "定时任务-修改任务状态", businessType = BusinessType.UPDATE)
     @PutMapping("/changeStatus")
+    @ApiOperation(value = "定时任务状态修改", notes = "")
     public ResponseResult changeStatus(@RequestBody SysJob job) throws SchedulerException {
         SysJob newJob = jobService.getById(job.getJobId());
         newJob.setStatus(job.getStatus());
@@ -110,8 +118,9 @@ public class SysJobController {
     /**
      * 定时任务立即执行一次
      */
-    @Log(title = "定时任务", businessType = BusinessType.UPDATE)
+    @Log(title = "定时任务-定时任务立即执行一次", businessType = BusinessType.UPDATE)
     @PutMapping("/run")
+    @ApiOperation(value = "定时任务立即执行一次", notes = "")
     public ResponseResult run(@RequestBody SysJob job) throws SchedulerException {
         jobService.run(job);
         return ResponseResult.okResult();
@@ -121,8 +130,9 @@ public class SysJobController {
      * 删除定时任务
      */
     @PreAuthorize("@ss.hasPermi('monitor:job:remove')")
-    @Log(title = "定时任务", businessType = BusinessType.DELETE)
+    @Log(title = "定时任务-删除定时任务", businessType = BusinessType.DELETE)
     @DeleteMapping("/{jobIds}")
+    @ApiOperation(value = "删除定时任务", notes = "")
     public ResponseResult remove(@PathVariable Long[] jobIds) throws SchedulerException, TaskException {
         jobService.deleteJobByIds(jobIds);
         return ResponseResult.okResult();

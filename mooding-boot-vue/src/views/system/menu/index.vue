@@ -6,15 +6,9 @@
       ref="queryForm"
       :inline="true"
       v-show="showSearch"
+      label-width="68px"
     >
       <el-form-item label="菜单名称" prop="menuName">
-        <!-- <el-input
-          v-model="queryParams.menuName"
-          placeholder="请输入菜单名称"
-          clearable
-          size="small"
-          @keyup.enter="handleQuery"
-        /> -->
         <md-input
           placeholder="请输入菜单名称模糊查询"
           clearable
@@ -30,6 +24,7 @@
           placeholder="菜单状态"
           clearable
           size="small"
+          style="width: 240px"
         >
           <el-option
             v-for="dict in statusOptions"
@@ -45,6 +40,7 @@
           placeholder="菜单类型"
           clearable
           size="small"
+          style="width: 240px"
         >
           <el-option
             v-for="dict in menuTypeOptions"

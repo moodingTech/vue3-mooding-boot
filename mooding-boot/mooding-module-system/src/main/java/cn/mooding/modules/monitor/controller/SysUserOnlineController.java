@@ -9,6 +9,7 @@ import cn.mooding.common.utils.string.StringUtils;
 import cn.mooding.modules.monitor.domain.SysUserOnline;
 import cn.mooding.modules.monitor.service.ISysUserOnlineService;
 import cn.mooding.modules.security.LoginUser;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -27,6 +28,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/monitor/online")
+@Api(tags = "系统在线用户监控")
 public class SysUserOnlineController {
 
     @Autowired

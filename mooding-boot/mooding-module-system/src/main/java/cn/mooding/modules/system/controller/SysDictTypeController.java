@@ -15,6 +15,7 @@ import cn.mooding.modules.system.service.ISysDictTypeService;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -34,6 +35,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/system/dict/type")
+@Api(tags = "系统数据字典类型")
 public class SysDictTypeController {
     @Autowired
     private ISysDictTypeService dictTypeService;

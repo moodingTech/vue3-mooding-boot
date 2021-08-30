@@ -8,6 +8,7 @@ import cn.mooding.common.utils.file.FileUploadUtils;
 import cn.mooding.common.utils.file.FileUtils;
 import cn.mooding.common.utils.string.StringUtils;
 import cn.mooding.config.ServerConfig;
+import io.swagger.annotations.Api;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,7 @@ import java.util.Map;
  * @Date 28/8/2021 -上午9:42
  */
 @RestController
+@Api(tags = "系统通用请求")
 public class CommonController {
     private static final Logger log = LoggerFactory.getLogger(CommonController.class);
 

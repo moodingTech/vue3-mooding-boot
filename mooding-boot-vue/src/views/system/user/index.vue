@@ -35,139 +35,135 @@
       </el-col>
       <!--		<el-card shadow="hover">-->
       <!--用户数据-->
+
       <el-col :span="20" :xs="24">
         <!-- 查询-->
-        <div class="system-user-search">
-          <el-form
-            :model="queryParams"
-            ref="queryForm"
-            :inline="true"
-            v-show="showSearch"
-            label-width="70px"
-          >
-            <el-form-item label="用户名称" prop="userName">
-              <md-input
-                placeholder="请输入用户名称模糊查询"
-                clearable
-                size="small"
-                @keyup.enter="handleQuery"
-                style="width: 240px"
-                v-model="queryParams.userName"
+        <el-form
+          :model="queryParams"
+          ref="queryForm"
+          :inline="true"
+          v-show="showSearch"
+          label-width="78px"
+        >
+          <el-form-item label="用户名称" prop="userName">
+            <md-input
+              placeholder="请输入用户名称模糊查询"
+              clearable
+              size="small"
+              @keyup.enter="handleQuery"
+              style="width: 240px"
+              v-model="queryParams.userName"
+            />
+          </el-form-item>
+          <el-form-item label="手机号码" prop="phonenumber">
+            <el-input
+              v-model="queryParams.phonenumber"
+              placeholder="请输入手机号码"
+              clearable
+              size="small"
+              style="width: 240px"
+              @keyup.enter="handleQuery"
+            />
+          </el-form-item>
+          <el-form-item label="状态" prop="status">
+            <el-select
+              v-model="queryParams.status"
+              placeholder="用户状态"
+              clearable
+              size="small"
+              style="width: 240px"
+            >
+              <el-option
+                v-for="dict in statusOptions"
+                :key="dict.dictValue"
+                :label="dict.dictLabel"
+                :value="dict.dictValue"
               />
-            </el-form-item>
-            <el-form-item label="手机号码" prop="phonenumber">
-              <el-input
-                v-model="queryParams.phonenumber"
-                placeholder="请输入手机号码"
-                clearable
-                size="small"
-                style="width: 240px"
-                @keyup.enter="handleQuery"
-              />
-            </el-form-item>
-            <el-form-item label="状态" prop="status">
-              <el-select
-                v-model="queryParams.status"
-                placeholder="用户状态"
-                clearable
-                size="small"
-                style="width: 240px"
-              >
-                <el-option
-                  v-for="dict in statusOptions"
-                  :key="dict.dictValue"
-                  :label="dict.dictLabel"
-                  :value="dict.dictValue"
-                />
-              </el-select>
-            </el-form-item>
-
-            <el-form-item label="创建时间">
-              <el-date-picker
-                v-model="dateRange"
-                size="small"
-                style="width: 240px"
-                format="YYYY-MM-DD"
-                type="daterange"
-                range-separator="-"
-                start-placeholder="开始日期"
-                end-placeholder="结束日期"
-              ></el-date-picker>
-            </el-form-item>
-            <el-form-item class="system-user-search-btn">
-              <el-button
-                type="primary"
-                icon="el-icon-search"
-                size="mini"
-                @click="handleQuery"
-                >搜索</el-button
-              >
-              <el-button icon="el-icon-refresh" size="mini" @click="resetQuery"
-                >重置</el-button
-              >
-            </el-form-item>
-          </el-form>
-        </div>
-
-        <el-row :gutter="10" class="mb8">
-          <el-col :span="1.5">
+            </el-select>
+          </el-form-item>
+          <el-form-item label="创建时间">
+            <el-date-picker
+              v-model="dateRange"
+              size="small"
+              style="width: 240px"
+              format="YYYY-MM-DD"
+              type="daterange"
+              range-separator="-"
+              start-placeholder="开始日期"
+              end-placeholder="结束日期"
+            ></el-date-picker>
+          </el-form-item>
+          <el-form-item class="system-user-search-btn">
             <el-button
               type="primary"
-              plain
-              icon="el-icon-plus"
+              icon="el-icon-search"
               size="mini"
-              v-hasPermi="['system:user:add']"
-              @click="handleAdd"
-              >新增
-            </el-button>
-          </el-col>
-          <el-col :span="1.5">
-            <el-button
-              type="success"
-              plain
-              icon="el-icon-edit"
-              size="mini"
-              :disabled="single"
-              v-hasPermi="['system:user:edit']"
-              @click="handleUpdate"
-              >修改
-            </el-button>
-          </el-col>
-          <el-col :span="1.5">
-            <el-button
-              type="danger"
-              plain
-              icon="el-icon-delete"
-              size="mini"
-              :disabled="multiple"
-              v-hasPermi="['system:user:remove']"
-              @click="handleDelete"
-              >删除
-            </el-button>
-          </el-col>
-          <el-col :span="1.5">
-            <el-button
-              type="info"
-              plain
-              icon="el-icon-upload2"
-              size="mini"
-              v-hasPermi="['system:user:import']"
-              @click="handleImport"
-              >导入
-            </el-button>
-          </el-col>
-          <el-col :span="1.5">
-            <el-button
-              type="warning"
-              plain
-              icon="el-icon-download"
-              size="mini"
-              v-hasPermi="['system:user:export']"
-              @click="handleExport"
-              >导出
-            </el-button>
-          </el-col>
-        </el-row>
+              @click="handleQuery"
+              >搜索</el-button
+            >
+            <el-button icon="el-icon-refresh" size="mini" @click="resetQuery"
+              >重置</el-button
+            >
+          </el-form-item>
+        </el-form>
+        <!-- 操作按钮 -->
+        <el-col :span="1.5">
+          <el-button
+            type="primary"
+            plain
+            icon="el-icon-plus"
+            size="mini"
+            v-hasPermi="['system:user:add']"
+            @click="handleAdd"
+            >新增
+          </el-button>
+        </el-col>
+        <el-col :span="1.5">
+          <el-button
+            type="success"
+            plain
+            icon="el-icon-edit"
+            size="mini"
+            :disabled="single"
+            v-hasPermi="['system:user:edit']"
+            @click="handleUpdate"
+            >修改
+          </el-button>
+        </el-col>
+        <el-col :span="1.5">
+          <el-button
+            type="danger"
+            plain
+            icon="el-icon-delete"
+            size="mini"
+            :disabled="multiple"
+            v-hasPermi="['system:user:remove']"
+            @click="handleDelete"
+            >删除
+          </el-button>
+        </el-col>
+        <el-col :span="1.5">
+          <el-button
+            type="info"
+            plain
+            icon="el-icon-upload2"
+            size="mini"
+            v-hasPermi="['system:user:import']"
+            @click="handleImport"
+            >导入
+          </el-button>
+        </el-col>
+        <el-col :span="1.5">
+          <el-button
+            type="warning"
+            plain
+            icon="el-icon-download"
+            size="mini"
+            v-hasPermi="['system:user:export']"
+            @click="handleExport"
+            >导出
+          </el-button>
+        </el-col>
 
         <el-table :data="tableData.data" stripe style="width: 100%">
           <!-- <el-table-column type="index" label="ID"></el-table-column> -->
@@ -429,8 +425,8 @@ export default {
           }
         },
       }).catch(() => {
-          row.status = row.status === "0" ? "1" : "0";
-        });
+        row.status = row.status === "0" ? "1" : "0";
+      });
     };
     /** 删除按钮操作 */
     const handleDelete = (row: any) => {

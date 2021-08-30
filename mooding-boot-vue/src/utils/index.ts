@@ -136,5 +136,6 @@ export function selectDictLabel(datas:any, value:any) {
 
 // 通用下载方法
 export function download(fileName:any) {
+    console.log("通用下载方法",baseURL);
 	window.location.href = baseURL + "common/download?fileName=" + encodeURI(fileName) + "&delete=" + true;
 }

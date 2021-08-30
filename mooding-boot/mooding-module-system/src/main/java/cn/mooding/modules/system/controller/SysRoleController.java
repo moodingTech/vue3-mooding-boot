@@ -20,6 +20,7 @@ import cn.mooding.modules.system.service.ISysUserService;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -40,6 +41,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/system/role")
+@Api(tags = "系统角色")
 public class SysRoleController {
 
     private static final Logger log = LoggerFactory.getLogger(SysRoleController.class);

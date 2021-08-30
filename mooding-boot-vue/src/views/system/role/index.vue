@@ -43,7 +43,7 @@
           v-model="queryParams.roleKey"
         />
       </el-form-item>
-      <el-form-item label="状态" prop="status">
+      <el-form-item label="状态" prop="status" >
         <el-select
           v-model="queryParams.status"
           placeholder="角色状态"

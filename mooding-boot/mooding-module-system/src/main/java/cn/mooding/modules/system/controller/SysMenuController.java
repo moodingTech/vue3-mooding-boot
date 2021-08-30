@@ -14,6 +14,7 @@ import cn.mooding.modules.security.service.TokenService;
 import cn.mooding.modules.security.utils.SecurityUtils;
 import cn.mooding.modules.system.entity.SysMenu;
 import cn.mooding.modules.system.service.ISysMenuService;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -34,6 +35,7 @@ import java.util.Map;
  */
 @RestController
 @RequestMapping("/system/menu")
+@Api(tags = "系统权限")
 public class SysMenuController {
     @Autowired
     private ISysMenuService menuService;

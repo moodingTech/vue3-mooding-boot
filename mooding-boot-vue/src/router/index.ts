@@ -86,6 +86,7 @@ export const staticRoutes: Array<RouteRecordRaw> = [
 
 // 添加静态路由
 const router = createRouter({
+    // history: createWebHashHistory("#"),
     history: createWebHistory("/"),
     routes: staticRoutes,
 });
