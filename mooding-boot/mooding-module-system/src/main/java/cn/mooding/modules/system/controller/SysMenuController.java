@@ -107,7 +107,7 @@ public class SysMenuController {
             return ResponseResult.errorResult(HttpCodeEnum.PARAM_ERR, "新增菜单'" + menu.getMenuName() + "'失败，地址必须以http(s)://开头");
         }
         menu.setCreateBy(SecurityUtils.getUsername());
-        return menuService.save(menu) ? ResponseResult.okResult(menuService.save(menu)) : ResponseResult.errorResult(HttpCodeEnum.SERVER_ERROR);
+        return ResponseResult.okResult(menuService.save(menu));
     }
 
     /**

@@ -6,14 +6,7 @@
         <el-card shadow="hover" header="个人信息">
           <div class="personal-user">
             <div class="personal-user-left">
-              <el-upload
-                class="h100 personal-user-left-upload"
-                action="https://jsonplaceholder.typicode.com/posts/"
-                multiple
-                :limit="1"
-              >
-                <img :src="userInfo.avatar" />
-              </el-upload>
+              <userAvatar :user="userInfo" />
             </div>
             <div class="personal-user-right">
               <el-row>
@@ -32,6 +25,24 @@
                       <div class="personal-item-label">身份：</div>
                       <div class="personal-item-value">
                         {{ userRoleName }}
+                      </div>
+                    </el-col>
+                  </el-row>
+                </el-col>
+                <el-col :span="24">
+                  <el-row>
+                    <el-col :xs="24" :sm="8" class="personal-item mb6">
+                      <div class="personal-item-label">所属部门：</div>
+                      <div class="personal-item-value">
+                        <div class="pull-right" v-if="userInfo.dept">
+                          {{ userInfo.dept.deptName }} / {{ postGroup }}
+                        </div>
+                      </div>
+                    </el-col>
+                    <el-col :xs="24" :sm="16" class="personal-item mb6">
+                      <div class="personal-item-label">手机号码：</div>
+                      <div class="personal-item-value">
+                        {{ userInfo.phonenumber }}
                       </div>
                     </el-col>
                   </el-row>
@@ -84,9 +95,51 @@
         </el-card>
       </el-col>
 
-      <!-- 营销推荐 -->
-      <el-col :span="24">
-        <el-card shadow="hover" class="mt15" header="营销推荐">
+      <!-- 个人信息 -->
+      <!-- <el-col :span="8" :xs="24">
+        <el-card class="box-card">
+          <div class="header clearfix">
+            <span>个人信息</span>
+          </div>
+
+          <div>
+            <div class="text-center">
+              <userAvatar :user="userInfo" />
+            </div>
+            <ul class="list-group list-group-striped">
+              <li class="list-group-item">
+                <svg-icon icon-class="user" />用户名称
+                <div class="pull-right">{{ userInfo.userName }}</div>
+              </li>
+              <li class="list-group-item">
+                <svg-icon icon-class="phone" />手机号码
+                <div class="pull-right">{{ userInfo.phonenumber }}</div>
+              </li>
+              <li class="list-group-item">
+                <svg-icon icon-class="email" />用户邮箱
+                <div class="pull-right">{{ userInfo.email }}</div>
+              </li>
+              <li class="list-group-item">
+                <svg-icon icon-class="tree" />所属部门
+                <div class="pull-right" v-if="userInfo.dept">
+                  {{ userInfo.dept.deptName }} / {{ postGroup }}
+                </div>
+              </li>
+              <li class="list-group-item">
+                <svg-icon icon-class="peoples" />所属角色
+                <div class="pull-right">{{ roleGroup }}</div>
+              </li>
+              <li class="list-group-item">
+                <svg-icon icon-class="date" />创建日期
+                <div class="pull-right">{{ userInfo.createTime }}</div>
+              </li>
+            </ul>
+          </div>
+        </el-card>
+         </el-col>
+         -->
+
+      <!-- <el-card shadow="hover" class="mt15" header="营销推荐">
           <el-row :gutter="15" class="personal-recommend-row">
             <el-col
               :sm="6"
@@ -106,8 +159,7 @@
               </div>
             </el-col>
           </el-row>
-        </el-card>
-      </el-col>
+        </el-card> -->
 
       <!-- 更新信息 -->
       <el-col :span="24">
@@ -206,7 +258,11 @@
               </el-col>
               <el-col :xs="24" :sm="12" :md="8" :lg="6" :xl="4" class="mb20">
                 <el-form-item label="性别">
-                  <el-select v-model="personalForm.sex" placeholder="请选择" class="w100">
+                  <el-select
+                    v-model="personalForm.sex"
+                    placeholder="请选择"
+                    class="w100"
+                  >
                     <el-option
                       v-for="dict in sexOptions"
                       :key="dict.dictValue"
@@ -291,8 +347,10 @@ import { newsInfoList, recommendList } from "./mock";
 import { useStore } from "@/store/index";
 import { treeselect } from "@/api/system/dept";
 import { getDicts } from "@/api/system/dict/data";
+import userAvatar from "./component/userAvatar.vue";
 export default {
   name: "personal",
+  components: { userAvatar },
   setup() {
     const store = useStore();
     const state = reactive({
@@ -316,6 +374,8 @@ export default {
         phone: "",
         sex: "",
       },
+      postGroup: {},
+      roleGroup: {},
     });
     // 当前时间提示语
     const currentTime = computed(() => {
@@ -383,7 +443,7 @@ export default {
     display: flex;
     align-items: center;
     .personal-user-left {
-      width: 100px;
+      width: 150px;
       height: 130px;
       border-radius: 3px;
       &:deep(.el-upload) {

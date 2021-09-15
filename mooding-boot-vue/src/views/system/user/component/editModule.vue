@@ -78,7 +78,7 @@
               />
             </el-form-item>
           </el-col>
-          <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12" class="mb20">
+          <!-- <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12" class="mb20">
             <el-form-item label="头像" prop="avatar">
               <el-upload
                 class="avatar-uploader"
@@ -95,7 +95,7 @@
                 <i v-else class="el-icon-plus avatar-uploader-icon"></i>
               </el-upload>
             </el-form-item>
-          </el-col>
+          </el-col> -->
           <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12" class="mb20">
             <el-form-item label="用户性别">
               <el-select v-model="ruleForm.sex" placeholder="请选择">

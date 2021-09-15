@@ -73,3 +73,12 @@ export function importTemplate() {
       method: 'get'
     })
   }
+
+  // 用户头像上传
+export function uploadAvatar(data:any) {
+    return request({
+      url: '/system/user/profile/avatar',
+      method: 'post',
+      data: data
+    })
+  }
