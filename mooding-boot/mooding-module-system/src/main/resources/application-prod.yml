@@ -72,9 +72,9 @@ spring:
         connectionProperties: druid.stat.mergeSql\=true;druid.stat.slowSqlMillis\=5000
       datasource:
         master:
-          url: jdbc:mysql://49.235.52.198:3306/mooding?characterEncoding=UTF-8&useUnicode=true&useSSL=false&tinyInt1isBit=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
-          username: root
-          password: root
+          url: ENC(pFLT77KgMdftEKTBSrCu5allvDuuiqab9+EIWk0hIEY0bvZhqBpKqtus24CyOYr/wFOUcSp3LAM7dLi3YwXh4TV8jVoAubYUoOggv0IM7BX03A19P+QEu/7Yw1z147suNE/UMlqkVY1IB2zpXWBt0xMShcWne9XXBOKx9dBK9HilA324We4JXyMWQa9jjlzW/XgNAdDgLDkIxg+hcK9cmn+kXKZXOuJMS82M6tZdnGRHpk26hUPuMw==)
+          username: ENC(mWuslKmNQlauxjJMRkeogw==)
+          password: ENC(sbpYsOvOBi7hwlOEIp1txA==)
           driver-class-name: com.mysql.cj.jdbc.Driver
           # 多数据源配置
           #multi-datasource1:
@@ -88,7 +88,7 @@ spring:
     host: 49.235.52.198
     # Redis服务器连接端口
     port: 6379
-    password: 
+    password: ENC(sbpYsOvOBi7hwlOEIp1txA==)
     jedis:
       pool:
         #连接池最大连接数（使用负值表示没有限制）
