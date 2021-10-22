@@ -4,7 +4,8 @@ import {store, key} from './store'
 import router from './router'
 import mitt from 'mitt'
 import ElementPlus from 'element-plus'
-import 'element-plus/lib/theme-chalk/index.css'
+import 'element-plus/dist/index.css'
+import locale from "element-plus/lib/locale/lang/zh-cn";//需要新加的代码
 import '@/assets/style/index.scss'
 import './permission' // 路由守卫
 import {addDateRange,parseTime,handleTree,selectDictLabel,download} from '@/utils'
@@ -20,11 +21,11 @@ import RightToolbar from "@/components/RightToolbar/index.vue"
 import Pagination from "@/components/Pagination/index.vue"
 import SvgIcon from '@/components/SvgIcon/index.vue' // 全局svg图标组件
 import MDInput from '@/components/mooding/MDInput.vue';
- 
+
 // createApp(App).mount('#app')
 const app = createApp(App);
 
-app.use(router).use(store, key).use(ElementPlus).mount('#app');
+app.use(router).use(store, key).use(ElementPlus, {locale}).mount('#app');
 //全局加载自定义工具插件
 app.component('RightToolbar', RightToolbar)
 app.component('Pagination', Pagination)

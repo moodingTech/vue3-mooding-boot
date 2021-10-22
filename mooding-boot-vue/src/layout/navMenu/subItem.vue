@@ -1,6 +1,6 @@
 <template>
   <template v-for="val in chils">
-    <el-submenu
+    <el-sub-menu
       :index="val.path"
       :key="val.path"
       v-if="val.children && val.children.length > 0"
@@ -10,7 +10,7 @@
         <span> {{ val.meta.title }}</span>
       </template>
       <sub-item :chil="val.children" />
-    </el-submenu>
+    </el-sub-menu>
     <el-menu-item :index="val.path" :key="val.path" v-else>
       <template
         v-if="!val.meta.isLink || (val.meta.isLink && val.meta.isFrame)"

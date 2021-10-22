@@ -729,7 +729,7 @@
 	border-right: none !important;
 }
 .el-menu-item,
-.el-submenu__title {
+.el-sub-menu__title {
 	height: 50px !important;
 	line-height: 50px !important;
 	color: var(--bg-menuBarColor);
@@ -737,31 +737,31 @@
 }
 // horizontal 水平方向时
 .el-menu--horizontal > .el-menu-item.is-active,
-.el-menu--horizontal > .el-submenu.is-active .el-submenu__title {
+.el-menu--horizontal > .el-sub-menu.is-active .el-sub-menu__title {
 	border-bottom: 3px solid !important;
 	border-bottom-color: set-color(primary);
 	color: set-color(primary);
 }
 .el-menu--horizontal .el-menu-item:not(.is-disabled):focus,
 .el-menu--horizontal .el-menu-item:not(.is-disabled):hover,
-.el-menu--horizontal > .el-submenu:focus .el-submenu__title,
-.el-menu--horizontal > .el-submenu:hover .el-submenu__title,
+.el-menu--horizontal > .el-sub-menu:focus .el-sub-menu__title,
+.el-menu--horizontal > .el-sub-menu:hover .el-sub-menu__title,
 .el-menu--horizontal .el-menu .el-menu-item.is-active,
-.el-menu--horizontal .el-menu .el-submenu.is-active > .el-submenu__title {
+.el-menu--horizontal .el-menu .el-sub-menu.is-active > .el-sub-menu__title {
 	color: set-color(primary);
 }
 .el-menu.el-menu--horizontal {
 	border-bottom: none !important;
 }
 .el-menu--horizontal > .el-menu-item,
-.el-menu--horizontal > .el-submenu .el-submenu__title {
+.el-menu--horizontal > .el-sub-menu .el-sub-menu__title {
 	color: var(--bg-topBarColor);
 }
 // 外部链接时
 .el-menu-item a,
 .el-menu-item a:hover,
 .el-menu-item i,
-.el-submenu__title i {
+.el-sub-menu__title i {
 	color: inherit;
 	text-decoration: none;
 }
@@ -771,7 +771,7 @@
 }
 // 默认 hover 时
 .el-menu-item:hover,
-.el-submenu__title:hover {
+.el-sub-menu__title:hover {
 	color: set-color(primary) !important;
 	background-color: transparent !important;
 	i {
@@ -808,14 +808,14 @@
 	.el-menu--horizontal {
 		background: var(--bg-topBar);
 		.el-menu-item,
-		.el-submenu__title {
+		.el-sub-menu__title {
 			color: var(--bg-topBarColor);
 		}
 	}
 }
 // 第三方图标字体间距/大小设置
 .el-menu-item .iconfont,
-.el-submenu .iconfont {
+.el-sub-menu .iconfont {
 	font-size: 14px !important;
 	display: inline-block;
 	vertical-align: middle;
@@ -824,7 +824,7 @@
 	text-align: center;
 }
 // element plus 本身字体图标
-.el-submenu [class^='el-icon-'] {
+.el-sub-menu [class^='el-icon-'] {
 	font-size: 14px !important;
 }
 // 去掉离开浏览器时，菜单的默认高亮
