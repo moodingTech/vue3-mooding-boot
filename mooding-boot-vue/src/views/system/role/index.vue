@@ -8,14 +8,6 @@
       :inline="true"
     >
       <el-form-item label="角色名称" prop="roleName">
-        <!-- <el-input
-          v-model="queryParams.roleName"
-          placeholder="请输入角色名称"
-          clearable
-          size="small"
-          style="width: 240px"
-          @keyup.enter="handleQuery"
-        /> -->
         <md-input
           placeholder="请输入角色名称模糊查询"
           clearable
@@ -25,15 +17,7 @@
           v-model="queryParams.roleName"
         />
       </el-form-item>
-      <el-form-item label="权限字符" prop="roleKey">
-        <!-- <el-input
-          v-model="queryParams.roleKey"
-          placeholder="请输入权限字符"
-          clearable
-          size="small"
-          style="width: 240px"
-          @keyup.enter="handleQuery"
-        /> -->
+      <el-form-item label="权限字符" prop="roleKey">      
         <md-input
           placeholder="请输入权限字符模糊查询"
           clearable
@@ -172,9 +156,6 @@
         prop="createTime"
         width="180"
       >
-        <!--        <template slot-scope="scope">
-                  <span>{{ parseTime(scope.row.createTime) }}</span>
-                </template>-->
       </el-table-column>
       <el-table-column
         label="操作"
@@ -262,8 +243,6 @@
             @change="handleCheckedTreeNodeAll($event, 'menu')"
             >全选/全不选</el-checkbox
           >
-          <!--          <el-checkbox v-model="roleForm.menuCheckStrictly" @change="handleCheckedTreeConnect($event, 'menu')">父子联动
-                    </el-checkbox>-->
           <el-tree
             class="tree-border"
             :data="menuOptions"
@@ -327,8 +306,6 @@
             @change="handleCheckedTreeNodeAll($event, 'dept')"
             >全选/全不选</el-checkbox
           >
-          <!--          <el-checkbox v-model="roleForm.deptCheckStrictly" @change="handleCheckedTreeConnect($event, 'dept')">父子联动
-                    </el-checkbox>-->
           <el-tree
             class="tree-border"
             :data="deptOptions"
@@ -689,7 +666,7 @@ export default {
     // 取消按钮
     const cancel = () => {
       state.open = false;
-      reset();
+      // reset();
     };
     // 所有菜单节点数据
     const getMenuAllCheckedKeys = () => {

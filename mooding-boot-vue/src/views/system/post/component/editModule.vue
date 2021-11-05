@@ -75,7 +75,6 @@ import { reactive, toRefs, ref, unref, getCurrentInstance } from "vue";
 import { updatePost, addPost } from "@/api/system/post";
 import { ElMessage } from "element-plus";
 
-// import { setBackEndControlRefreshRoutes } from "/@/router/backEnd";
 export default {
   name: "editMenu",
   props: {

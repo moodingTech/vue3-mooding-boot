@@ -8,15 +8,7 @@
       v-show="showSearch"
       label-width="68px"
     >
-      <el-form-item label="参数名称" prop="configName">
-        <!-- <el-input
-          v-model="queryParams.configName"
-          placeholder="请输入参数名称"
-          clearable
-          size="small"
-          style="width: 240px"
-          @keyup.enter="handleQuery"
-        /> -->
+      <el-form-item label="参数名称" prop="configName">       
          <md-input
           placeholder="请输入参数名称模糊查询"
           clearable

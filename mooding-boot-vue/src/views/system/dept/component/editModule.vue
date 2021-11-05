@@ -106,7 +106,6 @@ import IconSelector from "@/components/iconSelector/index.vue";
 import { treeselect, updateDept, addDept } from "@/api/system/dept";
 import { ElMessage } from "element-plus";
 
-// import { setBackEndControlRefreshRoutes } from "/@/router/backEnd";
 export default {
   name: "editMenu",
   components: { IconSelector },
@@ -157,16 +156,16 @@ export default {
           {
             type: "email",
             message: "'请输入正确的邮箱地址",
-            trigger: ["blur", "change"]
-          }
+            trigger: ["blur", "change"],
+          },
         ],
         phone: [
           {
             pattern: /^1[3|4|5|6|7|8|9][0-9]\d{8}$/,
             message: "请输入正确的手机号码",
-            trigger: "blur"
-          }
-        ]
+            trigger: "blur",
+          },
+        ],
       },
     });
     // 打开弹窗
@@ -196,13 +195,13 @@ export default {
 
     // 关闭弹窗
     const closeDialog = (row?: object) => {
-      proxy.mittBus.emit("onEditDeptModule",row)
+      proxy.mittBus.emit("onEditDeptModule", row);
       state.isShowDialog = false;
     };
     // 取消
     const onCancel = () => {
       closeDialog();
-      initForm();
+      // initForm();
     };
     /** 转换部门数据结构 */
     const normalizer = (node: any) => {

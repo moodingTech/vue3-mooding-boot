@@ -78,24 +78,6 @@
               />
             </el-form-item>
           </el-col>
-          <!-- <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12" class="mb20">
-            <el-form-item label="头像" prop="avatar">
-              <el-upload
-                class="avatar-uploader"
-                action="https://jsonplaceholder.typicode.com/posts/"
-                :show-file-list="false"
-                :on-success="handleAvatarSuccess"
-                :before-upload="beforeAvatarUpload"
-              >
-                <img
-                  v-if="ruleForm.avatar"
-                  :src="ruleForm.avatar"
-                  class="avatar"
-                />
-                <i v-else class="el-icon-plus avatar-uploader-icon"></i>
-              </el-upload>
-            </el-form-item>
-          </el-col> -->
           <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12" class="mb20">
             <el-form-item label="用户性别">
               <el-select v-model="ruleForm.sex" placeholder="请选择">
@@ -294,7 +276,7 @@ export default {
     // 取消
     const onCancel = () => {
       closeDialog();
-      initForm();
+      // initForm();
     };
     /** 查询部门下拉树结构 */
     const getTreeselect = async () => {

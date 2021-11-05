@@ -12,14 +12,6 @@
             prefix-icon="el-icon-search"
             style="margin-bottom: 20px"
           />
-          <!-- <md-input
-            placeholder="请输入部门名称模糊查询"
-            clearable
-            size="small"
-            prefix-icon="el-icon-search"
-            style="margin-bottom: 20px"
-            v-model="deptName"
-          /> -->
         </div>
         <div class="head-container">
           <el-tree
@@ -33,9 +25,8 @@
           />
         </div>
       </el-col>
-      <!--		<el-card shadow="hover">-->
-      <!--用户数据-->
 
+      <!--用户数据-->
       <el-col :span="20" :xs="24">
         <!-- 查询-->
         <el-form
@@ -106,6 +97,7 @@
             >
           </el-form-item>
         </el-form>
+
         <!-- 操作按钮 -->
         <el-col :span="1.5">
           <el-button
@@ -166,7 +158,6 @@
         </el-col>
 
         <el-table :data="tableData.data" stripe style="width: 100%">
-          <!-- <el-table-column type="index" label="ID"></el-table-column> -->
           <el-table-column
             label="用户编号"
             align="center"

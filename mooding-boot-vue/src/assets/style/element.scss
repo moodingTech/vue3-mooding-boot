@@ -993,6 +993,7 @@
 	width: 100%;
 	height: 100%;
 	overflow: auto;
+	padding: 0;
 }
 .el-drawer-fade-enter-active .el-drawer.rtl {
 	animation: rtl-drawer-animation 0.3s ease-in reverse !important;

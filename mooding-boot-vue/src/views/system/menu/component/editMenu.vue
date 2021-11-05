@@ -344,7 +344,7 @@ export default {
     // 取消
     const onCancel = () => {
       closeDialog();
-      initForm();
+      // initForm();
     };
     // 保存
     const onSubmit = () => {

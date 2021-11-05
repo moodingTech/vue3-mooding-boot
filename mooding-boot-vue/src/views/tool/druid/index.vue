@@ -1,48 +1,20 @@
 <template>
-  <div class="druid" :style="'height:'+ height">
-    <iframe src="/api/druid/index.html" class="ifm">
-
-    </iframe>
-  </div>
+  <iFrame :src=url />
 </template>
 <script lang="ts">
-import {onMounted} from 'vue'
+import iFrame from "@/components/iFrame/index.vue";
+import {  toRefs, reactive } from "vue";
 
 export default {
-  name: 'Druid',
+  name: "Druid",
+  components: { iFrame },
   setup() {
+    const state = reactive({
+      url: "http://127.0.0.1:8088/api/druid/index.html",
+    });
     return {
-      height: document.documentElement.clientHeight - 100 + 'px;',
+      ...toRefs(state),
     };
-
-    onMounted(() => {
-      setTimeout(() => {
-
-      }, 230)
-      const that = this
-      window.onresize = function temp() {
-        that.height = document.documentElement.clientHeight - 100 + 'px;'
-      }
-    })
-  }
-}
+  },
+};
 </script>
-<style scoped lang="scss">
-@import "src/assets/style/mixins/mixins";
-
-.druid {
-  padding: 0px;
-  margin: 0px;
-  width: 100%;
-  height: 1000px;
-}
-
-.ifm {
-  frameborderr: no;
-  border: 0;
-  width: 100%;
-  height: 100%;
-}
-
-
-</style>
