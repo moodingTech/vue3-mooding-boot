@@ -49,4 +49,8 @@ public interface ISysRoleService extends IService<SysRole> {
 
     //查询所有角色
     public List<SysRole> selectRoleAll();
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
 }

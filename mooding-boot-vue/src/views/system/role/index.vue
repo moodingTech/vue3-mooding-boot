@@ -8,6 +8,7 @@
       :inline="true"
     >
       <el-form-item label="角色名称" prop="roleName">
+<<<<<<< HEAD
         <!-- <el-input
           v-model="queryParams.roleName"
           placeholder="请输入角色名称"
@@ -16,6 +17,8 @@
           style="width: 240px"
           @keyup.enter="handleQuery"
         /> -->
+=======
+>>>>>>> master
         <md-input
           placeholder="请输入角色名称模糊查询"
           clearable
@@ -25,6 +28,7 @@
           v-model="queryParams.roleName"
         />
       </el-form-item>
+<<<<<<< HEAD
       <el-form-item label="权限字符" prop="roleKey">
         <!-- <el-input
           v-model="queryParams.roleKey"
@@ -34,6 +38,9 @@
           style="width: 240px"
           @keyup.enter="handleQuery"
         /> -->
+=======
+      <el-form-item label="权限字符" prop="roleKey">      
+>>>>>>> master
         <md-input
           placeholder="请输入权限字符模糊查询"
           clearable
@@ -43,7 +50,11 @@
           v-model="queryParams.roleKey"
         />
       </el-form-item>
+<<<<<<< HEAD
       <el-form-item label="状态" prop="status">
+=======
+      <el-form-item label="状态" prop="status" >
+>>>>>>> master
         <el-select
           v-model="queryParams.status"
           placeholder="角色状态"
@@ -172,9 +183,12 @@
         prop="createTime"
         width="180"
       >
+<<<<<<< HEAD
         <!--        <template slot-scope="scope">
                   <span>{{ parseTime(scope.row.createTime) }}</span>
                 </template>-->
+=======
+>>>>>>> master
       </el-table-column>
       <el-table-column
         label="操作"
@@ -262,8 +276,11 @@
             @change="handleCheckedTreeNodeAll($event, 'menu')"
             >全选/全不选</el-checkbox
           >
+<<<<<<< HEAD
           <!--          <el-checkbox v-model="roleForm.menuCheckStrictly" @change="handleCheckedTreeConnect($event, 'menu')">父子联动
                     </el-checkbox>-->
+=======
+>>>>>>> master
           <el-tree
             class="tree-border"
             :data="menuOptions"
@@ -327,8 +344,11 @@
             @change="handleCheckedTreeNodeAll($event, 'dept')"
             >全选/全不选</el-checkbox
           >
+<<<<<<< HEAD
           <!--          <el-checkbox v-model="roleForm.deptCheckStrictly" @change="handleCheckedTreeConnect($event, 'dept')">父子联动
                     </el-checkbox>-->
+=======
+>>>>>>> master
           <el-tree
             class="tree-border"
             :data="deptOptions"
@@ -689,7 +709,11 @@ export default {
     // 取消按钮
     const cancel = () => {
       state.open = false;
+<<<<<<< HEAD
       reset();
+=======
+      // reset();
+>>>>>>> master
     };
     // 所有菜单节点数据
     const getMenuAllCheckedKeys = () => {

@@ -12,6 +12,7 @@
             prefix-icon="el-icon-search"
             style="margin-bottom: 20px"
           />
+<<<<<<< HEAD
           <!-- <md-input
             placeholder="请输入部门名称模糊查询"
             clearable
@@ -20,6 +21,8 @@
             style="margin-bottom: 20px"
             v-model="deptName"
           /> -->
+=======
+>>>>>>> master
         </div>
         <div class="head-container">
           <el-tree
@@ -33,6 +36,7 @@
           />
         </div>
       </el-col>
+<<<<<<< HEAD
       <!--		<el-card shadow="hover">-->
       <!--用户数据-->
       <el-col :span="20" :xs="24">
@@ -179,6 +183,141 @@
 
         <el-table :data="tableData.data" stripe style="width: 100%">
           <el-table-column type="index" label="ID"></el-table-column>
+=======
+
+      <!--用户数据-->
+      <el-col :span="20" :xs="24">
+        <!-- 查询-->
+        <el-form
+          :model="queryParams"
+          ref="queryForm"
+          :inline="true"
+          v-show="showSearch"
+          label-width="78px"
+        >
+          <el-form-item label="用户名称" prop="userName">
+            <md-input
+              placeholder="请输入用户名称模糊查询"
+              clearable
+              size="small"
+              @keyup.enter="handleQuery"
+              style="width: 240px"
+              v-model="queryParams.userName"
+            />
+          </el-form-item>
+          <el-form-item label="手机号码" prop="phonenumber">
+            <el-input
+              v-model="queryParams.phonenumber"
+              placeholder="请输入手机号码"
+              clearable
+              size="small"
+              style="width: 240px"
+              @keyup.enter="handleQuery"
+            />
+          </el-form-item>
+          <el-form-item label="状态" prop="status">
+            <el-select
+              v-model="queryParams.status"
+              placeholder="用户状态"
+              clearable
+              size="small"
+              style="width: 240px"
+            >
+              <el-option
+                v-for="dict in statusOptions"
+                :key="dict.dictValue"
+                :label="dict.dictLabel"
+                :value="dict.dictValue"
+              />
+            </el-select>
+          </el-form-item>
+          <el-form-item label="创建时间">
+            <el-date-picker
+              v-model="dateRange"
+              size="small"
+              style="width: 240px"
+              format="YYYY-MM-DD"
+              type="daterange"
+              range-separator="-"
+              start-placeholder="开始日期"
+              end-placeholder="结束日期"
+            ></el-date-picker>
+          </el-form-item>
+          <el-form-item class="system-user-search-btn">
+            <el-button
+              type="primary"
+              icon="el-icon-search"
+              size="mini"
+              @click="handleQuery"
+              >搜索</el-button
+            >
+            <el-button icon="el-icon-refresh" size="mini" @click="resetQuery"
+              >重置</el-button
+            >
+          </el-form-item>
+        </el-form>
+
+        <!-- 操作按钮 -->
+        <el-col :span="1.5">
+          <el-button
+            type="primary"
+            plain
+            icon="el-icon-plus"
+            size="mini"
+            v-hasPermi="['system:user:add']"
+            @click="handleAdd"
+            >新增
+          </el-button>
+        </el-col>
+        <el-col :span="1.5">
+          <el-button
+            type="success"
+            plain
+            icon="el-icon-edit"
+            size="mini"
+            :disabled="single"
+            v-hasPermi="['system:user:edit']"
+            @click="handleUpdate"
+            >修改
+          </el-button>
+        </el-col>
+        <el-col :span="1.5">
+          <el-button
+            type="danger"
+            plain
+            icon="el-icon-delete"
+            size="mini"
+            :disabled="multiple"
+            v-hasPermi="['system:user:remove']"
+            @click="handleDelete"
+            >删除
+          </el-button>
+        </el-col>
+        <el-col :span="1.5">
+          <el-button
+            type="info"
+            plain
+            icon="el-icon-upload2"
+            size="mini"
+            v-hasPermi="['system:user:import']"
+            @click="handleImport"
+            >导入
+          </el-button>
+        </el-col>
+        <el-col :span="1.5">
+          <el-button
+            type="warning"
+            plain
+            icon="el-icon-download"
+            size="mini"
+            v-hasPermi="['system:user:export']"
+            @click="handleExport"
+            >导出
+          </el-button>
+        </el-col>
+
+        <el-table :data="tableData.data" stripe style="width: 100%">
+>>>>>>> master
           <el-table-column
             label="用户编号"
             align="center"
@@ -194,11 +333,28 @@
             <template #default="scope">
               <el-image
                 class="system-user-photo"
+<<<<<<< HEAD
                 :src="scope.row.avatar"
+=======
+                :src="
+                  scope.row.avatar
+                    ? scope.row.avatar
+                    : 'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1813762643,1914315241&fm=26&gp=0.jpg'
+                "
+>>>>>>> master
               ></el-image>
             </template>
           </el-table-column>
           <el-table-column
+<<<<<<< HEAD
+=======
+            label="用户性别"
+            align="center"
+            prop="sex"
+            :formatter="sexFormat"
+          />
+          <el-table-column
+>>>>>>> master
             prop="phonenumber"
             label="手机"
             show-overflow-tooltip
@@ -242,6 +398,7 @@
             </template>
           </el-table-column>
         </el-table>
+<<<<<<< HEAD
 
         <!-- 添加或修改参数配置对话框 -->
         <el-drawer :title="title" v-model="open" size="400px">
@@ -439,6 +596,8 @@
           </template> -->
         </el-drawer>
 
+=======
+>>>>>>> master
         <el-pagination
           @size-change="onHandleSizeChange"
           @current-change="onHandleCurrentChange"
@@ -453,6 +612,15 @@
         </el-pagination>
       </el-col>
     </el-row>
+<<<<<<< HEAD
+=======
+
+    <!-- 添加或修改参数配置对话框 -->
+    <EditModule ref="userFormRef" :title="title" />
+
+    <!-- 用户导入对话框 -->
+    <uploadModule ref="uploadRef" />
+>>>>>>> master
   </div>
 </template>
 
@@ -461,10 +629,17 @@ import {
   toRefs,
   reactive,
   onMounted,
+<<<<<<< HEAD
   unref,
   ref,
   watch,
   getCurrentInstance,
+=======
+  ref,
+  watch,
+  getCurrentInstance,
+  onUnmounted,
+>>>>>>> master
 } from "vue";
 import {
   listUser,
@@ -472,19 +647,35 @@ import {
   getUser,
   delUser,
   exportUser,
+<<<<<<< HEAD
   addUser,
   updateUser,
+=======
+>>>>>>> master
 } from "@/api/system/user";
 import { treeselect } from "@/api/system/dept";
 import { ElMessageBox, ElMessage } from "element-plus";
 import { getDicts } from "@/api/system/dict/data";
 import MDInput from "@/components/mooding/MDInput.vue";
+<<<<<<< HEAD
 export default {
   name: "systemUser",
   components: { MDInput },
   setup() {
     const { proxy } = getCurrentInstance() as any;
     const userFormRef = ref<HTMLElement | null>(null);
+=======
+import uploadModule from "./component/uploadModule.vue";
+import EditModule from "./component/editModule.vue";
+export default {
+  name: "systemUser",
+  components: { MDInput, uploadModule, EditModule },
+  setup() {
+    const { proxy } = getCurrentInstance() as any;
+    // const userFormRef = ref<HTMLElement | null>(null);
+    const userFormRef = ref();
+    const uploadRef = ref();
+>>>>>>> master
     const state: any = reactive({
       tableData: {
         data: [],
@@ -495,24 +686,37 @@ export default {
           pageSize: 10,
         },
       },
+<<<<<<< HEAD
       // 表单参数
       userForm: {},
+=======
+>>>>>>> master
       // 岗位选项
       postOptions: [],
       defaultProps: {
         children: "children",
         label: "label",
       },
+<<<<<<< HEAD
+=======
+      // 性别状态字典
+      sexOptions: [],
+>>>>>>> master
       // 角色选项
       roleOptions: [],
       // 状态数据字典
       statusOptions: [],
+<<<<<<< HEAD
       // 性别状态字典
       sexOptions: [],
       // 部门名称
       deptName: undefined,
       // 是否显示弹出层
       open: false,
+=======
+      // 部门名称
+      deptName: undefined,
+>>>>>>> master
       // 非单个禁用
       single: true,
       // 非多个禁用
@@ -523,8 +727,11 @@ export default {
       showSearch: true,
       // 弹出层标题
       title: "",
+<<<<<<< HEAD
       // 默认密码
       initPassword: undefined,
+=======
+>>>>>>> master
       // 日期范围
       dateRange: [],
       // 部门树选项
@@ -540,14 +747,21 @@ export default {
       },
       // 列信息
       columns: [
+<<<<<<< HEAD
         { key: 0, label: `用户编号`, visible: true },
         { key: 1, label: `用户名称`, visible: true },
         { key: 2, label: `用户昵称`, visible: true },
+=======
+        { key: 0, label: `用户名称`, visible: true },
+        { key: 1, label: `用户昵称`, visible: true },
+        { key: 2, label: `用户性别`, visible: true },
+>>>>>>> master
         { key: 3, label: `部门`, visible: true },
         { key: 4, label: `手机号码`, visible: true },
         { key: 5, label: `状态`, visible: true },
         { key: 6, label: `创建时间`, visible: true },
       ],
+<<<<<<< HEAD
       // 表单校验
       rules: {
         userName: [
@@ -574,6 +788,8 @@ export default {
           },
         ],
       },
+=======
+>>>>>>> master
     });
 
     watch(
@@ -585,7 +801,10 @@ export default {
     /** 查询用户列表 */
     const getList = async () => {
       state.loading = true;
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
       listUser(proxy.addDateRange(state.queryParams, state.dateRange)).then(
         (response) => {
           state.tableData.data = response.data.records;
@@ -594,6 +813,7 @@ export default {
         }
       );
     };
+<<<<<<< HEAD
     // 初始化表格数据
     const initTableData = async () => {
       const data: Array<object> = [];
@@ -613,11 +833,17 @@ export default {
         state.tableData.total = response.data.total;
       });
     };
+=======
+>>>>>>> master
     /** 搜索按钮操作 */
     const handleQuery = async () => {
       // console.log("查询用户列表", state.queryParams.userName);
       state.queryParams.page = 1;
+<<<<<<< HEAD
       await initTableData();
+=======
+      await getList();
+>>>>>>> master
     };
     /** 重置按钮操作 */
     const resetQuery = async () => {
@@ -633,6 +859,7 @@ export default {
     };
     /** 新增按钮操作 */
     const handleAdd = (row: any) => {
+<<<<<<< HEAD
       getTreeselect();
       state.userForm = {};
       state.userForm.deptId = null;
@@ -681,6 +908,17 @@ export default {
         }
       });
     };
+=======
+      state.title = "添加用戶";
+      userFormRef.value.openDialog(null);
+    };
+    /** 修改按钮操作 */
+    const handleUpdate = (row: any) => {
+      state.title = "修改用户";
+      userFormRef.value.openDialog(row);
+    };
+
+>>>>>>> master
     /** 查询部门下拉树结构 */
     const getTreeselect = async () => {
       treeselect().then((response) => {
@@ -691,8 +929,11 @@ export default {
     const handleStatusChange = (row: any) => {
       let text = row.status === "0" ? "启用" : "停用";
       ElMessageBox({
+<<<<<<< HEAD
         closeOnClickModal: false,
         closeOnPressEscape: false,
+=======
+>>>>>>> master
         title: "警告",
         message: '确认要"' + text + '""' + row.userName + '"用户吗?',
         showCancelButton: true,
@@ -702,11 +943,16 @@ export default {
           if (action === "confirm") {
             return changeUserStatus(row.userId, row.status).then(() => {
               ElMessage.success(text + "成功");
+<<<<<<< HEAD
+=======
+              done();
+>>>>>>> master
             });
           } else {
             done();
           }
         },
+<<<<<<< HEAD
       })
         .then(() => {
           ElMessage.success(text + "成功");
@@ -714,6 +960,11 @@ export default {
         .catch(() => {
           row.status = row.status === "0" ? "1" : "0";
         });
+=======
+      }).catch(() => {
+        row.status = row.status === "0" ? "1" : "0";
+      });
+>>>>>>> master
     };
     /** 删除按钮操作 */
     const handleDelete = (row: any) => {
@@ -731,6 +982,7 @@ export default {
         });
       });
     };
+<<<<<<< HEAD
     // 取消按钮
     const cancel = async () => {
       state.open = false;
@@ -747,17 +999,31 @@ export default {
     // 分页改变
     const onHandleSizeChange = (val: number) => {
       state.tableData.param.pageSize = val;
+=======
+
+    // 分页改变
+    const onHandleSizeChange = (val: number) => {
+      state.tableData.param.pageSize = val;
+      handleQuery();
+>>>>>>> master
     };
     // 分页改变
     const onHandleCurrentChange = (val: number) => {
       state.tableData.param.pageSize = val;
+<<<<<<< HEAD
+=======
+      handleQuery();
+>>>>>>> master
     };
     // 筛选节点
     const filterNode = (value: string, data: any) => {
       if (!value) return true;
       return data.label.indexOf(value) !== -1;
     };
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
     // 节点单击事件
     const handleNodeClick = (data: any) => {
       state.queryParams.deptId = data.id;
@@ -766,8 +1032,12 @@ export default {
 
     /** 导入按钮操作 */
     const handleImport = () => {
+<<<<<<< HEAD
       state.upload.title = "用户导入";
       state.upload.open = true;
+=======
+      uploadRef.value.openDialog();
+>>>>>>> master
     };
     /** 导出按钮操作 */
     const handleExport = () => {
@@ -783,6 +1053,7 @@ export default {
           return exportUser(queryParams);
         })
         .then((response) => {
+<<<<<<< HEAD
           console.log("导出按钮操作", response);
           // this.download(response.msg);
         });
@@ -815,11 +1086,38 @@ export default {
         state.sexOptions = response.data;
       });
       proxy.mittBus.on("onEditPostModule", (res: any) => {
+=======
+          proxy.download(response.data);
+        });
+    };
+    // 字典状态字典翻译
+    const sexFormat = (row: any, column: any) => {
+      return proxy.selectDictLabel(state.sexOptions, row.sex);
+    };
+    // 页面加载时
+    onMounted(() => {
+      getList();
+      getTreeselect();
+      // 查询显示状态数据字典
+      getDicts("sys_normal_disable").then((response) => {
+        state.statusOptions = response.data;
+      });
+      // 查询显示性別数据字典
+      proxy.getDicts("sys_user_sex").then((response: any) => {
+        state.sexOptions = response.data;
+      });
+
+      proxy.mittBus.on("onEditUserModule", (res: any) => {
+        handleQuery();
+      });
+      proxy.mittBus.on("onUploadModule", (res: any) => {
+>>>>>>> master
         handleQuery();
       });
     });
 
     // 页面卸载时
+<<<<<<< HEAD
     // onUnmounted(() => {
     //   proxy.mittBus.off("MDIputChange");
     // });
@@ -830,6 +1128,18 @@ export default {
       resetQuery,
       cancel,
       submitForm,
+=======
+    onUnmounted(() => {
+      proxy.mittBus.off("onEditUserModule");
+      proxy.mittBus.off("onUploadModule");
+    });
+    return {
+      userFormRef,
+      uploadRef,
+      sexFormat,
+      handleQuery,
+      resetQuery,
+>>>>>>> master
       getList,
       handleAdd,
       handleUpdate,
@@ -837,13 +1147,19 @@ export default {
       handleImport,
       handleExport,
       handleStatusChange,
+<<<<<<< HEAD
       initTableData,
+=======
+>>>>>>> master
       onHandleSizeChange,
       onHandleCurrentChange,
       filterNode,
       handleNodeClick,
+<<<<<<< HEAD
       handleAvatarSuccess,
       beforeAvatarUpload,
+=======
+>>>>>>> master
       ...toRefs(state),
     };
   },
@@ -867,6 +1183,7 @@ export default {
     border-radius: 100%;
   }
 }
+<<<<<<< HEAD
 
 .updateUser {
   height: 100%;
@@ -895,4 +1212,6 @@ export default {
   border-radius: 4px;
   display: block;
 }
+=======
+>>>>>>> master
 </style>

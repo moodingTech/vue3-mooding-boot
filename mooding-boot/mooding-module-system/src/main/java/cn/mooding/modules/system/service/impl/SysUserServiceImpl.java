@@ -5,10 +5,14 @@ import cn.mooding.common.utils.redis.RedisCache;
 import cn.mooding.common.utils.string.StringUtils;
 import cn.mooding.modules.security.utils.SecurityUtils;
 import cn.mooding.modules.system.controller.SysOperLogController;
+<<<<<<< HEAD
 import cn.mooding.modules.system.entity.SysRole;
 import cn.mooding.modules.system.entity.SysUser;
 import cn.mooding.modules.system.entity.SysUserPost;
 import cn.mooding.modules.system.entity.SysUserRole;
+=======
+import cn.mooding.modules.system.entity.*;
+>>>>>>> master
 import cn.mooding.modules.system.mapper.*;
 import cn.mooding.modules.system.service.*;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
@@ -52,6 +56,12 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
     @Autowired
     private ISysConfigService configService;
 
+<<<<<<< HEAD
+=======
+    @Autowired
+    private SysPostMapper sysPostMapper;
+
+>>>>>>> master
     /**
      * 分页查询用户信息
      *
@@ -352,4 +362,106 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
         }
         return successMsg.toString();
     }
+<<<<<<< HEAD
+=======
+
+    /**
+     * 修改用户状态
+     *
+     * @param user 用户信息
+     * @return 结果
+     */
+    @Override
+    public int updateUserStatus(SysUser user) {
+        return baseMapper.updateUserStatus(user.getUserId(), user.getStatus());
+    }
+
+
+    /**
+     * 修改用户头像
+     *
+     * @param userId 用户Id
+     * @param avatar 头像地址
+     * @return 结果
+     */
+    @Override
+    public boolean updateUserAvatar(Long userId, String avatar) {
+        SysUser sysUser = baseMapper.selectById(userId);
+        sysUser.setAvatar(avatar);
+        return baseMapper.updateById(sysUser) > 0;
+    }
+
+    /**
+     * 重置用户密码
+     *
+     * @param userId   用户Id
+     * @param password 密码
+     * @return 结果
+     */
+    @Override
+    public int resetUserPwd(Long userId, String password) {
+        return baseMapper.resetPwd(userId, SecurityUtils.encryptPassword(password));
+    }
+
+    /**
+     * 重置用户密码
+     *
+     * @param user 用户信息
+     * @return 结果
+     */
+    @Override
+    public int resetPwd(SysUser user) {
+        String password = configService.selectConfigByKey("sys.user.initPassword");
+        return baseMapper.resetPwd(user.getUserId(), SecurityUtils.encryptPassword(password));
+    }
+
+    /**
+     * 修改用户基本信息
+     *
+     * @param user 用户信息
+     * @return 结果
+     */
+    @Override
+    public int updateUserProfile(SysUser user) {
+        return baseMapper.updateById(user);
+    }
+
+    /**
+     * 查询用户所属角色组
+     *
+     * @param userId 用户Id
+     * @return 结果
+     */
+    @Override
+    public String selectUserRoleGroup(Long userId) {
+        List<SysRole> list = sysRoleMapper.getRolesByUserId(userId);
+        StringBuffer idsStr = new StringBuffer();
+        for (SysRole role : list) {
+            idsStr.append(role.getRoleName()).append(",");
+        }
+        if (StringUtils.isNotEmpty(idsStr.toString())) {
+            return idsStr.substring(0, idsStr.length() - 1);
+        }
+        return idsStr.toString();
+    }
+
+    /**
+     * 查询用户所属岗位组
+     *
+     * @param userId 用户id
+     * @return 结果
+     */
+    @Override
+    public String selectUserPostGroup(Long userId) {
+        List<SysPost> list = sysPostMapper.selectSysPostsByUserId(userId);
+        StringBuffer idsStr = new StringBuffer();
+        for (SysPost post : list) {
+            idsStr.append(post.getPostName()).append(",");
+        }
+        if (StringUtils.isNotEmpty(idsStr.toString())) {
+            return idsStr.substring(0, idsStr.length() - 1);
+        }
+        return idsStr.toString();
+    }
+>>>>>>> master
 }

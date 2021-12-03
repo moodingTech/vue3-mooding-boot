@@ -49,7 +49,11 @@ public interface SysDeptMapper extends BaseMapper<SysDept> {
      * @param roleId 角色ID
      * @return 选中部门列表
      */
+<<<<<<< HEAD
     @Select("select  CONCAT_WS (',',ancestors ,  dept_id) as ancestors from t_sys_dept a left join t_sys_role_dept b on a.dept_id =b.dept_id where b.role_id=#{roleId}")
+=======
+    @Select("select  CONCAT_WS (',',ancestors ,  dept_id) as ancestors from t_sys_dept a left join t_sys_role_dept b on a.dept_id =b.dept_id where a.del_flag<>2 and b.role_id=#{roleId}")
+>>>>>>> master
     public List<SysDept> selectDeptListByRoleId(@Param("roleId") Long roleId);
     /**
      * 校验部门名称是否唯一
@@ -66,7 +70,11 @@ public interface SysDeptMapper extends BaseMapper<SysDept> {
      * @param deptId 部门ID
      * @return 子部门数
      */
+<<<<<<< HEAD
     @Select("select count(*) from t_sys_dept where status = 0 and del_flag = '0' and find_in_set(#{deptId}, ancestors)")
+=======
+    @Select("select count(*) from t_sys_dept where status = 0 and del_flag<>2 and find_in_set(#{deptId}, ancestors)")
+>>>>>>> master
     public int selectNormalChildrenDeptById(@Param("deptId")Long deptId);
 
 
@@ -100,7 +108,11 @@ public interface SysDeptMapper extends BaseMapper<SysDept> {
      * @return 结果
      */
 
+<<<<<<< HEAD
     @Select("select count(1) from t_sys_dept  where del_flag = '0' and parent_id = #{deptId} limit 1")
+=======
+    @Select("select count(1) from t_sys_dept  where del_flag<>2 and parent_id = #{deptId} limit 1")
+>>>>>>> master
     public int hasChildByDeptId(@Param("deptId") Long deptId);
 
     /**
@@ -109,7 +121,11 @@ public interface SysDeptMapper extends BaseMapper<SysDept> {
      * @param deptId 部门ID
      * @return 结果
      */
+<<<<<<< HEAD
     @Select("select count(1) from t_sys_user where dept_id = #{deptId} and del_flag = '0'")
+=======
+    @Select("select count(1) from t_sys_user where dept_id = #{deptId} and del_flag<>2 ")
+>>>>>>> master
     public int checkDeptExistUser(@Param("deptId") Long deptId);
 
     /**

@@ -27,16 +27,21 @@ const viteConfig: UserConfig = {
     })],
     root: process.cwd(),
     resolve: { alias },
+<<<<<<< HEAD
     // base: process.env.NODE_ENV === 'production' ? VITE_PUBLIC_PATH : './',
     base: '/',
     // optimizeDeps: {
     //     include: ['element-plus/lib/locale/lang/zh-cn', 'element-plus/lib/locale/lang/en', 'element-plus/lib/locale/lang/zh-tw'],
     // },
+=======
+    base: '/',
+>>>>>>> master
     server: {
         host: '0.0.0.0',
         port: VITE_PORT,
         open: VITE_OPEN,
         proxy: {
+<<<<<<< HEAD
             // '/gitee': {
             // 	target: 'https://gitee.com',
             // 	ws: true,
@@ -45,11 +50,23 @@ const viteConfig: UserConfig = {
             // },
             '/api': {
                 // target: 'http://49.235.52.198:8081/api',
+=======
+            '/api': {
+>>>>>>> master
                 target: 'http://127.0.0.1:8081/api',
                 ws: true,
                 changeOrigin: true,
                 rewrite: (path) => path.replace(/^\/api/, ''),
             },
+<<<<<<< HEAD
+=======
+            '/test': {
+                target: 'https://view.inews.qq.com',
+                ws: true,
+                changeOrigin: true,
+                rewrite: (path) => path.replace(/^\/test/, ''),
+            },
+>>>>>>> master
         },
     },
     build: {
@@ -57,6 +74,7 @@ const viteConfig: UserConfig = {
         minify: 'esbuild',
         sourcemap: false,
     },
+<<<<<<< HEAD
     // define: {
     //     __VUE_I18N_LEGACY_API__: JSON.stringify(false),
     //     __VUE_I18N_FULL_INSTALL__: JSON.stringify(false),
@@ -108,3 +126,9 @@ export default viteConfig;
 //      */
 //     // base: './',
 // })
+=======
+};
+
+export default viteConfig;
+
+>>>>>>> master

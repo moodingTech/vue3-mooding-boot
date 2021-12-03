@@ -42,7 +42,11 @@ const permissionRouteModule: Module<PermissionRoute, RootStateTypes> = {
                     // console.log("向后端请求路由数据1",JSON.stringify(res.data));             
                     const sdata = JSON.parse(JSON.stringify(res.data))
                     const rdata = JSON.parse(JSON.stringify(res.data))
+<<<<<<< HEAD
                     // console.log("向后端请求路由数据2",rdata);
+=======
+                    console.log("向后端请求路由数据2",rdata);
+>>>>>>> master
                     const sidebarRoutes = filterAsyncRouter(sdata)
                     const rewriteRoutes = filterAsyncRouter(rdata, false, true)
                     

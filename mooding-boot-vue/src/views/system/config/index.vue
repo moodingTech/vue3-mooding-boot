@@ -8,6 +8,7 @@
       v-show="showSearch"
       label-width="68px"
     >
+<<<<<<< HEAD
       <el-form-item label="参数名称" prop="configName">
         <!-- <el-input
           v-model="queryParams.configName"
@@ -17,6 +18,9 @@
           style="width: 240px"
           @keyup.enter="handleQuery"
         /> -->
+=======
+      <el-form-item label="参数名称" prop="configName">       
+>>>>>>> master
          <md-input
           placeholder="请输入参数名称模糊查询"
           clearable
@@ -27,6 +31,7 @@
         />
       </el-form-item>
       <el-form-item label="参数键名" prop="configKey">
+<<<<<<< HEAD
         <!-- <el-input
           v-model="queryParams.configKey"
           placeholder="请输入参数键名"
@@ -35,6 +40,8 @@
           style="width: 240px"
           @keyup.enter="handleQuery"
         /> -->
+=======
+>>>>>>> master
          <md-input
           placeholder="请输入参数键名模糊查询"
           clearable
@@ -50,6 +57,10 @@
           placeholder="系统内置"
           clearable
           size="small"
+<<<<<<< HEAD
+=======
+          style="width: 240px"
+>>>>>>> master
         >
           <el-option
             v-for="dict in typeOptions"

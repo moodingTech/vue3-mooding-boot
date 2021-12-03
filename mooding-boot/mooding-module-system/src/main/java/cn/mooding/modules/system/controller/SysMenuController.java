@@ -14,6 +14,10 @@ import cn.mooding.modules.security.service.TokenService;
 import cn.mooding.modules.security.utils.SecurityUtils;
 import cn.mooding.modules.system.entity.SysMenu;
 import cn.mooding.modules.system.service.ISysMenuService;
+<<<<<<< HEAD
+=======
+import io.swagger.annotations.Api;
+>>>>>>> master
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -34,6 +38,10 @@ import java.util.Map;
  */
 @RestController
 @RequestMapping("/system/menu")
+<<<<<<< HEAD
+=======
+@Api(tags = "系统权限")
+>>>>>>> master
 public class SysMenuController {
     @Autowired
     private ISysMenuService menuService;
@@ -105,7 +113,11 @@ public class SysMenuController {
             return ResponseResult.errorResult(HttpCodeEnum.PARAM_ERR, "新增菜单'" + menu.getMenuName() + "'失败，地址必须以http(s)://开头");
         }
         menu.setCreateBy(SecurityUtils.getUsername());
+<<<<<<< HEAD
         return menuService.save(menu) ? ResponseResult.okResult(menuService.save(menu)) : ResponseResult.errorResult(HttpCodeEnum.SERVER_ERROR);
+=======
+        return ResponseResult.okResult(menuService.save(menu));
+>>>>>>> master
     }
 
     /**

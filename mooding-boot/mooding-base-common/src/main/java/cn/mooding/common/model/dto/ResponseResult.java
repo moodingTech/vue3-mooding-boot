@@ -32,6 +32,7 @@ public class ResponseResult<T> implements Serializable {
     @ApiModelProperty(value = "返回处理消息")
     private String message = "操作成功！";
 
+<<<<<<< HEAD
     public long getTimestamp() {
         return timestamp;
     }
@@ -40,14 +41,23 @@ public class ResponseResult<T> implements Serializable {
         this.timestamp = timestamp;
     }
 
+=======
+>>>>>>> master
     /**
      * 时间戳
      */
     @ApiModelProperty(value = "时间戳")
     private long timestamp = System.currentTimeMillis();
 
+<<<<<<< HEAD
     private T data;
 
+=======
+
+    private T data;
+
+
+>>>>>>> master
     public ResponseResult() {
         this.success = true;
         this.code = 200;
@@ -104,9 +114,12 @@ public class ResponseResult<T> implements Serializable {
         return setHttpCodeEnum(enums, message, false);
     }
 
+<<<<<<< HEAD
     public static ResponseResult setHttpCodeEnum(HttpCodeEnum enums) {
         return okResult(enums.getCode(), enums.getMessage());
     }
+=======
+>>>>>>> master
 
     private static ResponseResult setHttpCodeEnum(HttpCodeEnum enums, String message) {
         return okResult(enums.getCode(), message);
@@ -116,13 +129,18 @@ public class ResponseResult<T> implements Serializable {
         return okResult(enums.getCode(), message);
     }
 
+<<<<<<< HEAD
     public ResponseResult<?> error(Integer code, String msg) {
+=======
+    public ResponseResult<T> error(Integer code, String msg) {
+>>>>>>> master
         this.code = code;
         this.message = msg;
         this.success = false;
         return this;
     }
 
+<<<<<<< HEAD
     public ResponseResult<?> ok(Integer code, T data) {
         this.code = code;
         this.data = data;
@@ -131,6 +149,10 @@ public class ResponseResult<T> implements Serializable {
     }
 
     public ResponseResult<?> ok(Integer code, T data, String msg) {
+=======
+
+    public ResponseResult<T> ok(Integer code, T data, String msg) {
+>>>>>>> master
         this.code = code;
         this.data = data;
         this.message = msg;
@@ -170,4 +192,14 @@ public class ResponseResult<T> implements Serializable {
         this.data = data;
     }
 
+<<<<<<< HEAD
+=======
+    public long getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(long timestamp) {
+        this.timestamp = timestamp;
+    }
+>>>>>>> master
 }

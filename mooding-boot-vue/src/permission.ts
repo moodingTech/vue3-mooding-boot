@@ -24,6 +24,7 @@ router.beforeEach((to, from, next) => {
                     // 拉取user_info
                     const roles = res.roles
                     store.dispatch('permissionRoute/GenerateRoutes', { roles }).then(accessRoutes => {
+<<<<<<< HEAD
                         // console.log("测试1",accessRoutes);
                         formatTwoStageRoutes(formatFlatteningRoutes(accessRoutes)).forEach((route: RouteRecordRaw) => {
                             const routeName: any = route.name;
@@ -33,6 +34,12 @@ router.beforeEach((to, from, next) => {
 
 
 
+=======
+                        formatTwoStageRoutes(formatFlatteningRoutes(accessRoutes)).forEach((routeTmp: RouteRecordRaw) => {
+                            const routeName: any = routeTmp.name;
+                            if (!router.hasRoute(routeName)) router.addRoute(routeTmp);
+                        });
+>>>>>>> master
                         // 根据roles权限生成可访问的路由表
                         // accessRoutes.forEach((route: any) => {
                         //     // console.log('添加路由', route)

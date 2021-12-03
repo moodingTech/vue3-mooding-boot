@@ -46,7 +46,12 @@ spring:
       web-stat-filter:
         enabled: true
     dynamic:
+<<<<<<< HEAD
       druid: # 全局druid参数，绝大部分值和默认保持一致。(现已支持的参数如下,不清楚含义不要乱设置)
+=======
+      druid:
+        # 全局druid参数，绝大部分值和默认保持一致。(现已支持的参数如下,不清楚含义不要乱设置)
+>>>>>>> master
         # 连接池的配置信息
         # 初始化大小，最小，最大
         initial-size: 5
@@ -71,6 +76,7 @@ spring:
         connectionProperties: druid.stat.mergeSql\=true;druid.stat.slowSqlMillis\=5000
       datasource:
         master:
+<<<<<<< HEAD
           url: jdbc:mysql://49.235.52.198:3306/mooding?characterEncoding=UTF-8&useUnicode=true&useSSL=false&tinyInt1isBit=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
           username: root
           password: root
@@ -81,6 +87,19 @@ spring:
           #username: root
           #password: root
           #driver-class-name: com.mysql.cj.jdbc.Driver
+=======
+          url: ENC(pFLT77KgMdftEKTBSrCu5allvDuuiqab9+EIWk0hIEY0bvZhqBpKqtus24CyOYr/wFOUcSp3LAM7dLi3YwXh4TV8jVoAubYUoOggv0IM7BX03A19P+QEu/7Yw1z147suNE/UMlqkVY1IB2zpXWBt0xMShcWne9XXBOKx9dBK9HilA324We4JXyMWQa9jjlzW/XgNAdDgLDkIxg+hcK9cmn+kXKZXOuJMS82M6tZdnGRHpk26hUPuMw==)
+          username: ENC(mWuslKmNQlauxjJMRkeogw==)
+          password: ENC(sbpYsOvOBi7hwlOEIp1txA==)
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          # 多数据源配置
+          #multi-datasource1:
+          #url: jdbc:mysql://localhost:3306/mooding2?useUnicode=true&characterEncoding=utf8&autoReconnect=true&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
+          #username: root
+          #password: root
+          #driver-class-name: com.mysql.cj.jdbc.Driver
+  #redis 配置
+>>>>>>> master
   ##默认密码为空
   redis:
     host: 49.235.52.198
@@ -99,6 +118,22 @@ spring:
     timeout: 5000
     #默认是索引为0的数据库
     database: 0
+<<<<<<< HEAD
+=======
+  # 邮箱配置
+  mail:
+    host: smtp.126.com
+    username: moodingtech@126.com
+    password: HJDNJUMSGYKYDGL
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+
+>>>>>>> master
 #mybatis plus 设置
 mybatis-plus:
 #  mapper-locations: classpath:mapper/*.xml
@@ -114,7 +149,11 @@ mybatis-plus:
       table-underline: true
   configuration:
     # 这个配置会将执行的sql打印出来，在开发或测试的时候可以用
+<<<<<<< HEAD
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+=======
+    # log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+>>>>>>> master
     # 返回类型为Map,显示null对应的字段
     call-setters-on-nulls: true
 #Mybatis输出sql日志
@@ -124,4 +163,7 @@ logging:
 #enable swagger
 swagger:
   swaggerEnabled: true
+<<<<<<< HEAD
 
+=======
+>>>>>>> master

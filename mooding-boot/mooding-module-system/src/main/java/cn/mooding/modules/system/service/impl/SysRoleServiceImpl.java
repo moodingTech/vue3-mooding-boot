@@ -274,6 +274,14 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> impl
      */
     @Override
     public List<SysRole> selectRoleAll() {
+<<<<<<< HEAD
         return baseMapper.selectList(null);
     }
+=======
+        LambdaQueryWrapper<SysRole> queryWrapper = new LambdaQueryWrapper<SysRole>().ne(SysRole::getDelFlag, 2);
+
+        return baseMapper.selectList(queryWrapper);
+    }
+
+>>>>>>> master
 }

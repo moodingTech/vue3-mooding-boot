@@ -53,4 +53,61 @@ public interface ISysUserService extends IService<SysUser> {
      * @return 结果
      */
     public String importUser(List<SysUser> userList, Boolean isUpdateSupport, String operName);
+<<<<<<< HEAD
+=======
+    /**
+     * 重置用户密码
+     *
+     * @param user 用户信息
+     * @return 结果
+     */
+    public int resetPwd(SysUser user);
+    /**
+     * 修改用户状态
+     *
+     * @param user 用户信息
+     * @return 结果
+     */
+    public int updateUserStatus(SysUser user);
+
+    /**
+     * 修改用户头像
+     *
+     * @param userId 用户Id
+     * @param avatar 头像地址
+     * @return 结果
+     */
+    public boolean updateUserAvatar(Long userId, String avatar);
+    /**
+     * 重置用户密码
+     *
+     * @param userId 用户Id
+     * @param password 密码
+     * @return 结果
+     */
+    public int resetUserPwd(Long userId, String password);
+    /**
+     * 修改用户基本信息
+     *
+     * @param user 用户信息
+     * @return 结果
+     */
+    public int updateUserProfile(SysUser user);
+
+    /**
+     * 根据用户ID查询用户所属角色组
+     *
+     * @param userId 用户Id
+     * @return 结果
+     */
+    public String selectUserRoleGroup(Long userId);
+
+    /**
+     * 根据用户ID查询用户所属岗位组
+     *
+     * @param userId 用户Id
+     * @return 结果
+     */
+    public String selectUserPostGroup(Long userId);
+>>>>>>> master
 }

@@ -24,10 +24,17 @@ mooding:
   copyrightYear: 2021
   # 实例演示开关
   demoEnabled: true
+<<<<<<< HEAD
   # 文件路径 示例（ Windows配置D:/ruoyi/uploadPath，Linux配置 /home/ruoyi/uploadPath）
   profile: D:/mooding/uploadPath
   # 获取ip地址开关
   addressEnabled: false
+=======
+  # 文件路径 示例（ Windows配置D:/mooding/uploadPath，Linux配置 /home/mooding/uploadPath）
+  profile: D:/mooding/uploadPath
+  # 获取ip地址开关
+  addressEnabled: true
+>>>>>>> master
   # 验证码类型 math 数组计算 char 字符验证
   captchaType: math
 
@@ -44,4 +51,11 @@ token:
   # 令牌有效期（默认30分钟）
   expireTime: 120
 
+<<<<<<< HEAD
 # 项目相关配置
+=======
+# jasypt加密的密匙
+jasypt:
+  encryptor:
+    password: Y6M9fAJQdU7jNp5MW
+>>>>>>> master

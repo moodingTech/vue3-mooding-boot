@@ -9,6 +9,7 @@
       label-width="68px"
     >
       <el-form-item label="岗位编码" prop="postCode">
+<<<<<<< HEAD
         <!-- <el-input
           v-model="queryParams.postCode"
           placeholder="请输入岗位编码"
@@ -17,6 +18,8 @@
           @keyup.enter="handleQuery"
         />
        -->
+=======
+>>>>>>> master
         <md-input
           placeholder="请输入岗位编码模糊查询"
           clearable
@@ -27,6 +30,7 @@
         />
       </el-form-item>
       <el-form-item label="岗位名称" prop="postName">
+<<<<<<< HEAD
         <!-- <el-input
           v-model="queryParams.postName"
           placeholder="请输入岗位名称"
@@ -34,6 +38,8 @@
           size="small"
           @keyup.enter="handleQuery"
         /> -->
+=======
+>>>>>>> master
         <md-input
           placeholder="请输入岗位名称模糊查询"
           clearable
@@ -49,6 +55,10 @@
           placeholder="岗位状态"
           clearable
           size="small"
+<<<<<<< HEAD
+=======
+          style="width: 240px"
+>>>>>>> master
         >
           <el-option
             v-for="dict in statusOptions"

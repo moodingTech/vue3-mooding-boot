@@ -9,6 +9,7 @@
       label-width="68px"
     >
       <el-form-item label="任务名称" prop="jobName">
+<<<<<<< HEAD
         <!-- <el-input
           v-model="queryParams.jobName"
           placeholder="请输入任务名称"
@@ -16,6 +17,8 @@
           size="small"
           @keyup.enter="handleQuery"
         /> -->
+=======
+>>>>>>> master
         <md-input
           placeholder="请输入任务名称模糊查询"
           clearable
@@ -31,6 +34,10 @@
           placeholder="请选择任务组名"
           clearable
           size="small"
+<<<<<<< HEAD
+=======
+          style="width: 240px"
+>>>>>>> master
         >
           <el-option
             v-for="dict in jobGroupOptions"
@@ -46,6 +53,10 @@
           placeholder="请选择任务状态"
           clearable
           size="small"
+<<<<<<< HEAD
+=======
+          style="width: 240px"
+>>>>>>> master
         >
           <el-option
             v-for="dict in statusOptions"

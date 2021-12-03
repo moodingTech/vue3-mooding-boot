@@ -9,6 +9,7 @@
       label-width="68px"
     >
       <el-form-item label="字典名称" prop="dictName">
+<<<<<<< HEAD
         <!-- <el-input
           v-model="queryParams.dictName"
           placeholder="请输入字典名称"
@@ -17,6 +18,8 @@
           style="width: 240px"
           @keyup.enter="handleQuery"
         /> -->
+=======
+>>>>>>> master
         <md-input
           placeholder="请输入字典名称模糊查询"
           clearable
@@ -42,6 +45,10 @@
           placeholder="字典状态"
           clearable
           size="small"
+<<<<<<< HEAD
+=======
+          style="width: 240px"
+>>>>>>> master
         >
           <el-option
             v-for="dict in statusOptions"
@@ -120,7 +127,11 @@
           plain
           icon="el-icon-download"
           size="mini"
+<<<<<<< HEAD
           @click="onTabelRowDel"
+=======
+          @click="handleExport"
+>>>>>>> master
           v-hasPermi="['system:dict:export']"
           >导出</el-button
         >
@@ -252,6 +263,10 @@ import { ElMessageBox, ElMessage } from "element-plus";
 import { listType, delType, clearCache } from "@/api/system/dict/type";
 import EditModule from "@/views/system/dict/component/editModule.vue";
 import dictList from "./component/dictList.vue";
+<<<<<<< HEAD
+=======
+import { exportData } from "@/api/system/dict/data";
+>>>>>>> master
 
 export default {
   name: "index",
@@ -349,7 +364,11 @@ export default {
     };
     // 多选框选中数据
     const handleSelectionChange = (selection: any) => {
+<<<<<<< HEAD
       state.ids = selection.map((item: any) => item.postId);
+=======
+      state.ids = selection.map((item: any) => item.dictId);
+>>>>>>> master
       state.single = selection.length != 1;
       state.multiple = !selection.length;
     };
@@ -375,6 +394,26 @@ export default {
       dictItemModuleRef.value.openDrawer(record);
     };
 
+<<<<<<< HEAD
+=======
+    /** 导出按钮操作 */
+    const handleExport = () => {
+      const queryParams = state.queryParams;
+      ElMessageBox({
+        message: "是否确认导出所有类型数据项?",
+        title: "警告",
+        confirmButtonText: "确定",
+        cancelButtonText: "取消",
+        type: "warning",
+      })
+        .then(function () {
+          return exportData(queryParams);
+        })
+        .then((response) => {
+          proxy.download(response.data);
+        });
+    };
+>>>>>>> master
     // 页面加载时
     onMounted(() => {
       // 查询字典信息
@@ -404,6 +443,10 @@ export default {
       onOpenEditModule,
       statusFormat,
       onTabelRowDel,
+<<<<<<< HEAD
+=======
+      handleExport,
+>>>>>>> master
       handleClearCache,
       ...toRefs(state),
     };

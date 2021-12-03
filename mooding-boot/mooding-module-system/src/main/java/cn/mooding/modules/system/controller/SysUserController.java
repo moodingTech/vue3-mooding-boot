@@ -129,7 +129,11 @@ public class SysUserController {
             return ResponseResult.errorResult(HttpCodeEnum.EMAIL_EXIST.getCode(), "新增用户'" + user.getUserName() + "'失败，邮箱账号:" + user.getEmail() + ",已存在");
         }
         userService.addSysUser(user);
+<<<<<<< HEAD
         return ResponseResult.okResult(MessageUtils.message("user.login.success", null));
+=======
+        return ResponseResult.okResult(MessageUtils.message("user.login.success", new Object[]{}));
+>>>>>>> master
     }
 
     /**
@@ -144,7 +148,11 @@ public class SysUserController {
         // 角色处理
         List<SysRole> roles = null;
         if (SecurityUtils.isAdmin()) {
+<<<<<<< HEAD
             roles = roleService.list();
+=======
+            roles = roleService.selectRoleAll();
+>>>>>>> master
         } else {
             roles = SecurityUtils.getLoginUser().getUser().getRoles();//登陆具有的角色才能查询出来
         }
@@ -192,4 +200,32 @@ public class SysUserController {
     public ResponseResult remove(@PathVariable Long[] userIds) {
         return ResponseResult.okResult(userService.deleteUserByIds(userIds));
     }
+<<<<<<< HEAD
+=======
+
+    /**
+     * 重置密码
+     */
+    @PreAuthorize("@md.hasPermi('system:user:resetPwd')")
+    @Log(title = "用户管理", businessType = BusinessType.UPDATE)
+    @PutMapping("/resetPwd")
+    public ResponseResult resetPwd(@RequestBody SysUser user)
+    {
+//        userService.checkUserAllowed(user);
+//        user.setPassword(SecurityUtils.encryptPassword(user.getPassword()));
+        return ResponseResult.okResult(userService.resetPwd(user));
+    }
+
+    /**
+     * 状态修改
+     */
+    @PreAuthorize("@md.hasPermi('system:user:edit')")
+    @Log(title = "用户管理", businessType = BusinessType.UPDATE)
+    @PutMapping("/changeStatus")
+    public ResponseResult changeStatus(@RequestBody SysUser user)
+    {
+//        userService.checkUserAllowed(user);
+        return ResponseResult.okResult(userService.updateUserStatus(user));
+    }
+>>>>>>> master
 }
