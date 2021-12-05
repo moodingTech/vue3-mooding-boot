@@ -18,11 +18,7 @@ public class MessageUtils {
      * @return 获取国际化翻译值
      */
     public String getMessage(String code) {
-<<<<<<< HEAD
-        return message(code, null);
-=======
         return message(code,  new   Object[]{});
->>>>>>> master
     }
 
     /**

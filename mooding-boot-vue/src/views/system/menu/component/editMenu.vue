@@ -11,16 +11,6 @@
         <el-row :gutter="35">
           <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12" class="mb20">
             <el-form-item label="上级菜单" prop="parentId">
-<<<<<<< HEAD
-              <!-- <treeselect
-                v-model="ruleForm.parentId"
-                :options="menuOptions"
-                :normalizer="normalizer"
-                :show-count="true"
-                placeholder="选择上级菜单"
-              /> -->
-=======
->>>>>>> master
               <el-cascader
                 v-model="ruleForm.parentId"
                 :options="menuOptions"
@@ -354,11 +344,7 @@ export default {
     // 取消
     const onCancel = () => {
       closeDialog();
-<<<<<<< HEAD
-      initForm();
-=======
       // initForm();
->>>>>>> master
     };
     // 保存
     const onSubmit = () => {

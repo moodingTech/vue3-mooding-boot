@@ -5,14 +5,7 @@ import cn.mooding.common.utils.redis.RedisCache;
 import cn.mooding.common.utils.string.StringUtils;
 import cn.mooding.modules.security.utils.SecurityUtils;
 import cn.mooding.modules.system.controller.SysOperLogController;
-<<<<<<< HEAD
-import cn.mooding.modules.system.entity.SysRole;
-import cn.mooding.modules.system.entity.SysUser;
-import cn.mooding.modules.system.entity.SysUserPost;
-import cn.mooding.modules.system.entity.SysUserRole;
-=======
 import cn.mooding.modules.system.entity.*;
->>>>>>> master
 import cn.mooding.modules.system.mapper.*;
 import cn.mooding.modules.system.service.*;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
@@ -56,12 +49,9 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
     @Autowired
     private ISysConfigService configService;
 
-<<<<<<< HEAD
-=======
     @Autowired
     private SysPostMapper sysPostMapper;
 
->>>>>>> master
     /**
      * 分页查询用户信息
      *
@@ -362,8 +352,6 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
         }
         return successMsg.toString();
     }
-<<<<<<< HEAD
-=======
 
     /**
      * 修改用户状态
@@ -463,5 +451,4 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
         }
         return idsStr.toString();
     }
->>>>>>> master
 }

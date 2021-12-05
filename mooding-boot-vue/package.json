@@ -8,42 +8,27 @@
   },
   "dependencies": {
     "axios": "^0.21.1",
-<<<<<<< HEAD
-    "countup.js": "^2.0.7",
-    "clipboard": "^2.0.8",
-    "echarts": "^5.1.1",
-    "element-plus": "^1.0.2-beta.41",
-=======
     "clipboard": "^2.0.8",
     "countup.js": "^2.0.7",
     "echarts": "^5.1.1",
     "element-plus": "^1.1.0-beta.24",
->>>>>>> master
     "mitt": "^2.1.0",
     "nprogress": "^0.2.0",
     "screenfull": "^5.1.0",
     "sortablejs": "^1.13.0",
     "vue": "^3.0.5",
-<<<<<<< HEAD
-=======
     "vue-cropperjs": "^5.0.0",
->>>>>>> master
     "vue-router": "^4.0.2",
     "vuex": "^4.0.0-rc.2"
   },
   "devDependencies": {
-<<<<<<< HEAD
-    "@types/node": "^14.14.37",
-    "@types/clipboard": "^2.0.1",
-=======
     "@types/clipboard": "^2.0.1",
     "@types/node": "^14.14.37",
->>>>>>> master
     "@types/nprogress": "^0.2.0",
     "@vitejs/plugin-vue": "^1.2.2",
     "@vue/compiler-sfc": "^3.0.5",
     "dotenv": "^8.2.0",
-    "sass": "^1.32.8",
+    "sass": "^1.43.2",
     "sass-loader": "^11.0.1",
     "typescript": "^4.1.3",
     "vite": "^2.2.3",

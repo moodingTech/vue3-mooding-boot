@@ -6,18 +6,7 @@
         <el-card shadow="hover" header="个人信息">
           <div class="personal-user">
             <div class="personal-user-left">
-<<<<<<< HEAD
-              <el-upload
-                class="h100 personal-user-left-upload"
-                action="https://jsonplaceholder.typicode.com/posts/"
-                multiple
-                :limit="1"
-              >
-                <img :src="userInfo.avatar" />
-              </el-upload>
-=======
               <userAvatar :user="userInfo" />
->>>>>>> master
             </div>
             <div class="personal-user-right">
               <el-row>
@@ -43,8 +32,6 @@
                 <el-col :span="24">
                   <el-row>
                     <el-col :xs="24" :sm="8" class="personal-item mb6">
-<<<<<<< HEAD
-=======
                       <div class="personal-item-label">所属部门：</div>
                       <div class="personal-item-value">
                         <div class="pull-right" v-if="userInfo.dept">
@@ -63,7 +50,6 @@
                 <el-col :span="24">
                   <el-row>
                     <el-col :xs="24" :sm="8" class="personal-item mb6">
->>>>>>> master
                       <div class="personal-item-label">登录IP：</div>
                       <div class="personal-item-value">
                         {{ userInfo.loginIp }}
@@ -109,11 +95,6 @@
         </el-card>
       </el-col>
 
-<<<<<<< HEAD
-      <!-- 营销推荐 -->
-      <el-col :span="24">
-        <el-card shadow="hover" class="mt15" header="营销推荐">
-=======
       <!-- 个人信息 -->
       <!-- <el-col :span="8" :xs="24">
         <el-card class="box-card">
@@ -159,7 +140,6 @@
          -->
 
       <!-- <el-card shadow="hover" class="mt15" header="营销推荐">
->>>>>>> master
           <el-row :gutter="15" class="personal-recommend-row">
             <el-col
               :sm="6"
@@ -179,12 +159,7 @@
               </div>
             </el-col>
           </el-row>
-<<<<<<< HEAD
-        </el-card>
-      </el-col>
-=======
         </el-card> -->
->>>>>>> master
 
       <!-- 更新信息 -->
       <el-col :span="24">
@@ -283,15 +258,11 @@
               </el-col>
               <el-col :xs="24" :sm="12" :md="8" :lg="6" :xl="4" class="mb20">
                 <el-form-item label="性别">
-<<<<<<< HEAD
-                  <el-select v-model="personalForm.sex" placeholder="请选择" class="w100">
-=======
                   <el-select
                     v-model="personalForm.sex"
                     placeholder="请选择"
                     class="w100"
                   >
->>>>>>> master
                     <el-option
                       v-for="dict in sexOptions"
                       :key="dict.dictValue"
@@ -376,15 +347,10 @@ import { newsInfoList, recommendList } from "./mock";
 import { useStore } from "@/store/index";
 import { treeselect } from "@/api/system/dept";
 import { getDicts } from "@/api/system/dict/data";
-<<<<<<< HEAD
-export default {
-  name: "personal",
-=======
 import userAvatar from "./component/userAvatar.vue";
 export default {
   name: "personal",
   components: { userAvatar },
->>>>>>> master
   setup() {
     const store = useStore();
     const state = reactive({
@@ -408,11 +374,8 @@ export default {
         phone: "",
         sex: "",
       },
-<<<<<<< HEAD
-=======
       postGroup: {},
       roleGroup: {},
->>>>>>> master
     });
     // 当前时间提示语
     const currentTime = computed(() => {
@@ -480,11 +443,7 @@ export default {
     display: flex;
     align-items: center;
     .personal-user-left {
-<<<<<<< HEAD
-      width: 100px;
-=======
       width: 150px;
->>>>>>> master
       height: 130px;
       border-radius: 3px;
       &:deep(.el-upload) {

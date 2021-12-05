@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-const baseURL = "http://localhost:8088"
-
-=======
 // const baseURL = "http://localhost:8088"
 const baseURL =import.meta.env.VITE_API_URL
->>>>>>> master
 
 // 转换字符串，undefined,null等转化为""
 export function praseStrEmpty(str: any) {
@@ -34,45 +29,24 @@ export function addDateRange(params: any, dateRange: any, propName: any) {
 // 日期格式化
 export function parseTime(time: any, pattern: string) {
     var datetime = new Date(time);
-<<<<<<< HEAD
-    console.log("日期格式化0",datetime);
-    console.log("日期格式化1",time);
     if (arguments.length === 0 || !time) {
         return null
     }
-    console.log("日期格式化2",pattern);
-=======
-    if (arguments.length === 0 || !time) {
-        return null
-    }
->>>>>>> master
     const format = pattern || '{y}-{m}-{d} {h}:{i}:{s}'
     let date
     if (typeof time === 'object') {
         date = time
     } else {
-<<<<<<< HEAD
-        console.log("日期格式化3.2",typeof time === 'string', (/^[0-9]+$/.test(time)) );
-=======
->>>>>>> master
         if ((typeof time === 'string') && (/^[0-9]+$/.test(time))) {
             time = parseInt(time)
         } else if (typeof time === 'string') {
             console.log("日期格式化4",typeof time === 'string',time.replace(new RegExp(/-/gm), '/') );
             time = time.replace(new RegExp(/-/gm), '/');
         }
-<<<<<<< HEAD
-        console.log("日期格式化5",time);
-=======
->>>>>>> master
         if ((typeof time === 'number') && (time.toString().length === 10)) {
             time = time * 1000
         }
         date = new Date(time)
-<<<<<<< HEAD
-        console.log("日期格式化6",date);
-=======
->>>>>>> master
     }
     const formatObj = {
         y: date.getFullYear(),
@@ -162,10 +136,6 @@ export function selectDictLabel(datas:any, value:any) {
 
 // 通用下载方法
 export function download(fileName:any) {
-<<<<<<< HEAD
-	window.location.href = baseURL + "/common/download?fileName=" + encodeURI(fileName) + "&delete=" + true;
-=======
     console.log("通用下载方法",baseURL);
 	window.location.href = baseURL + "common/download?fileName=" + encodeURI(fileName) + "&delete=" + true;
->>>>>>> master
 }

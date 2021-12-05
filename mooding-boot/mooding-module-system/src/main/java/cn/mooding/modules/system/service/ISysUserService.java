@@ -53,8 +53,6 @@ public interface ISysUserService extends IService<SysUser> {
      * @return 结果
      */
     public String importUser(List<SysUser> userList, Boolean isUpdateSupport, String operName);
-<<<<<<< HEAD
-=======
     /**
      * 重置用户密码
      *
@@ -109,5 +107,4 @@ public interface ISysUserService extends IService<SysUser> {
      * @return 结果
      */
     public String selectUserPostGroup(Long userId);
->>>>>>> master
 }

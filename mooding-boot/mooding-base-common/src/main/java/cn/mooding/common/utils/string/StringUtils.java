@@ -470,8 +470,6 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
     {
         return StringUtils.startsWithAny(link, Constants.HTTP, Constants.HTTPS);
     }
-<<<<<<< HEAD
-=======
 
     /**
      * 不重复的验证码
@@ -502,5 +500,4 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
         }
         return stringBuilder.toString();
     }
->>>>>>> master
 }

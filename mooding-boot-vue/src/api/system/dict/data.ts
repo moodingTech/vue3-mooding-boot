@@ -52,11 +52,7 @@ export function delData(dictCode: number) {
 }
 
 // 导出字典数据
-<<<<<<< HEAD
-export function exportData(query: Array<object>) {
-=======
 export function exportData(query: any) {
->>>>>>> master
     return request({
         url: '/system/dict/data/export',
         method: 'get',

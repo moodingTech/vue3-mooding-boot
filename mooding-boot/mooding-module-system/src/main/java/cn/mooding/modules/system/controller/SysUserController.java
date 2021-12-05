@@ -129,11 +129,7 @@ public class SysUserController {
             return ResponseResult.errorResult(HttpCodeEnum.EMAIL_EXIST.getCode(), "新增用户'" + user.getUserName() + "'失败，邮箱账号:" + user.getEmail() + ",已存在");
         }
         userService.addSysUser(user);
-<<<<<<< HEAD
-        return ResponseResult.okResult(MessageUtils.message("user.login.success", null));
-=======
         return ResponseResult.okResult(MessageUtils.message("user.login.success", new Object[]{}));
->>>>>>> master
     }
 
     /**
@@ -148,11 +144,7 @@ public class SysUserController {
         // 角色处理
         List<SysRole> roles = null;
         if (SecurityUtils.isAdmin()) {
-<<<<<<< HEAD
-            roles = roleService.list();
-=======
             roles = roleService.selectRoleAll();
->>>>>>> master
         } else {
             roles = SecurityUtils.getLoginUser().getUser().getRoles();//登陆具有的角色才能查询出来
         }
@@ -200,8 +192,6 @@ public class SysUserController {
     public ResponseResult remove(@PathVariable Long[] userIds) {
         return ResponseResult.okResult(userService.deleteUserByIds(userIds));
     }
-<<<<<<< HEAD
-=======
 
     /**
      * 重置密码
@@ -227,5 +217,4 @@ public class SysUserController {
 //        userService.checkUserAllowed(user);
         return ResponseResult.okResult(userService.updateUserStatus(user));
     }
->>>>>>> master
 }

@@ -8,21 +8,13 @@
 		:collapse-transition="false"
 	>
 		<template v-for="val in menuLists">
-<<<<<<< HEAD
-			<el-submenu :index="val.path" v-if="val.children && val.children.length > 0" :key="val.path">
-=======
 			<el-sub-menu :index="val.path" v-if="val.children && val.children.length > 0" :key="val.path">
->>>>>>> master
 				<template #title>
 					<i :class="val.meta.icon ? val.meta.icon : ''"></i>
 					<span>{{  val.meta.title  }}</span>
 				</template>
 				<SubItem :chil="val.children" />
-<<<<<<< HEAD
-			</el-submenu>
-=======
 			</el-sub-menu>
->>>>>>> master
 			<el-menu-item :index="val.path" :key="val.path" v-else>
 				<i :class="val.meta.icon ? val.meta.icon : ''"></i>
 				<template #title v-if="!val.meta.isLink || (val.meta.isLink && val.meta.isFrame)">

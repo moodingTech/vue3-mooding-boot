@@ -24,22 +24,11 @@ public interface SysUserMapper extends BaseMapper<SysUser> {
      * @param userName 用户名
      * @return 用户对象信息
      */
-<<<<<<< HEAD
-    @Select("select * from t_sys_user a where a.user_name= #{userName}")
-=======
     @Select("select * from t_sys_user a where del_flag<>2 and a.user_name= #{userName}")
->>>>>>> master
     public SysUser selectUserByUserName(@Param("userName") String userName);
 
     /**
      * 修改登陆信息
-<<<<<<< HEAD
-     * @param userId 用户id
-     * @param loginIP   登陆Ip
-     */
-    @Update("set t_sys_user set login_ip =#{loginIP} ,login_date=now() where user_id=#{userId}")
-    public int updateUserLoginInfo(@Param("userId") Long userId, @Param("loginIP") String loginIP);
-=======
      *
      * @param userId  用户id
      * @param loginIP 登陆Ip
@@ -66,5 +55,4 @@ public interface SysUserMapper extends BaseMapper<SysUser> {
      */
     @Update("update t_sys_user set password =#{password}  where user_id=#{userId}")
     public int resetPwd(@Param("userId") Long userId, @Param("password") String password);
->>>>>>> master
 }

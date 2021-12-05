@@ -1,9 +1,6 @@
 package cn.mooding.modules.system.entity;
 
-<<<<<<< HEAD
-=======
 import cn.mooding.common.aspect.annotation.Excel;
->>>>>>> master
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
@@ -34,20 +31,6 @@ public class SysConfig implements Serializable {
 
     @ApiModelProperty(value = "参数主键")
     @TableId(value = "config_id", type = IdType.AUTO)
-<<<<<<< HEAD
-    private Integer configId;
-
-    @ApiModelProperty(value = "参数名称")
-    private String configName;
-
-    @ApiModelProperty(value = "参数键名")
-    private String configKey;
-
-    @ApiModelProperty(value = "参数键值")
-    private String configValue;
-
-    @ApiModelProperty(value = "系统内置（Y是 N否）")
-=======
     @Excel(name = "参数主键", cellType = Excel.ColumnType.NUMERIC)
     private Integer configId;
 
@@ -65,7 +48,6 @@ public class SysConfig implements Serializable {
 
     @ApiModelProperty(value = "系统内置（Y是 N否）")
     @Excel(name = "系统内置", readConverterExp = "Y=是,N=否")
->>>>>>> master
     private String configType;
 
     @ApiModelProperty(value = "创建者")
@@ -81,9 +63,6 @@ public class SysConfig implements Serializable {
     private LocalDateTime updateTime;
 
     @ApiModelProperty(value = "备注")
-<<<<<<< HEAD
-=======
     @Excel(name = "备注")
->>>>>>> master
     private String remark;
 }

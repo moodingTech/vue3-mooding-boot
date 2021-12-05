@@ -49,11 +49,7 @@ export function exportUser(query: Array<object>) {
 }
 
 // 新增用户
-<<<<<<< HEAD
-export function addUser(data: Array<object>) {
-=======
 export function addUser(data: any) {
->>>>>>> master
     return request({
         url: '/system/user/add',
         method: 'put',
@@ -69,8 +65,6 @@ export function updateUser(data:any) {
         data: data
     })
 }
-<<<<<<< HEAD
-=======
 
 // 下载用户导入模板
 export function importTemplate() {
@@ -88,4 +82,3 @@ export function uploadAvatar(data:any) {
       data: data
     })
   }
->>>>>>> master

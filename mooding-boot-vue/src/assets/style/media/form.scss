@@ -2,11 +2,7 @@
 
 /* 页面宽度小于576px
 ------------------------------- */
-<<<<<<< HEAD
-@media screen and (max-width: $xs) {
-=======
 @media screen and (min-width: $sm) and (max-width: $xs) {
->>>>>>> master
 	.el-form-item__label {
 		width: 100% !important;
 		text-align: left !important;
@@ -15,8 +11,6 @@
 		margin-left: 0 !important;
 	}
 }
-<<<<<<< HEAD
-=======
 
 /* 页面宽度小于576px
 ------------------------------- */
@@ -29,4 +23,3 @@
 		margin-left: 0 !important;
 	}
 }
->>>>>>> master

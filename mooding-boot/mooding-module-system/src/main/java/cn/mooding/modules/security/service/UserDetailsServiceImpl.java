@@ -16,13 +16,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-<<<<<<< HEAD
-import java.sql.Date;
-import java.time.LocalDateTime;
-=======
 import java.time.LocalDateTime;
 import java.util.Date;
->>>>>>> master
 
 /**
  * 用户验证处理
@@ -60,12 +55,8 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         // 请求的地址
         String ip = IpUtils.getIpAddr(ServletUtils.getRequest());
         user.setLoginIp(ip);
-<<<<<<< HEAD
-        user.setLoginDate(LocalDateTime.now());
-=======
 //        user.setLoginDate(LocalDateTime.now());
         user.setLoginDate(new Date());
->>>>>>> master
         userService.updateUser(user);
         return new LoginUser(user, permissionService.getMenuPermission(user));
     }

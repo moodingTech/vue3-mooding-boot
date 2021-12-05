@@ -6,21 +6,9 @@
       ref="queryForm"
       :inline="true"
       v-show="showSearch"
-<<<<<<< HEAD
-    >
-      <el-form-item label="部门名称" prop="deptName">
-        <!-- <el-input
-          v-model="queryParams.deptName"
-          placeholder="请输入部门名称"
-          clearable
-          size="small"
-          @keyup.enter="handleQuery"
-        /> -->
-=======
       label-width="68px"
     >
       <el-form-item label="部门名称" prop="deptName">
->>>>>>> master
         <md-input
           placeholder="请输入部门名称模糊查询"
           clearable
@@ -30,20 +18,13 @@
           v-model="queryParams.deptName"
         />
       </el-form-item>
-<<<<<<< HEAD
-      <el-form-item label="状态" prop="status">
-=======
       <el-form-item label="状态" prop="status" >
->>>>>>> master
         <el-select
           v-model="queryParams.status"
           placeholder="部门状态"
           clearable
           size="small"
-<<<<<<< HEAD
-=======
           style="width: 240px"
->>>>>>> master
         >
           <el-option
             v-for="dict in statusOptions"
@@ -128,17 +109,6 @@
       </el-table-column>
     </el-table>
 
-<<<<<<< HEAD
-     <!-- 添加或修改部门对话框 -->
-    <EditModule ref="editModuleRef" :title="title" />
-  </div>
-
-
-</template>
-
-<script lang="ts">
-import { ref, toRefs, reactive, onMounted, getCurrentInstance,onUnmounted } from "vue";
-=======
     <!-- 添加或修改部门对话框 -->
     <EditModule ref="editModuleRef" :title="title" />
   </div>
@@ -153,7 +123,6 @@ import {
   getCurrentInstance,
   onUnmounted,
 } from "vue";
->>>>>>> master
 import { ElMessageBox, ElMessage } from "element-plus";
 import { listDept, delDept } from "@/api/system/dept";
 import EditModule from "@/views/system/dept/component/editModule.vue";
@@ -169,11 +138,7 @@ export default {
       loading: true,
       // 显示搜索条件
       showSearch: true,
-<<<<<<< HEAD
-       // 弹出层标题
-=======
       // 弹出层标题
->>>>>>> master
       title: "",
       // 部门表格树数据
       tableData: [] as any,
@@ -243,16 +208,6 @@ export default {
       proxy.getDicts("sys_normal_disable").then((response: any) => {
         state.statusOptions = response.data;
       });
-<<<<<<< HEAD
-      proxy.mittBus.on('onEditDeptModule', (res: any) => {
-				handleQuery();
-			});
-    });
-    	// 页面卸载时
-		onUnmounted(() => {
-			proxy.mittBus.off('onEditDeptModule');
-		});
-=======
       proxy.mittBus.on("onEditDeptModule", (res: any) => {
         handleQuery();
       });
@@ -261,7 +216,6 @@ export default {
     onUnmounted(() => {
       proxy.mittBus.off("onEditDeptModule");
     });
->>>>>>> master
     return {
       editModuleRef,
       handleQuery,

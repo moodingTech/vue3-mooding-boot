@@ -28,11 +28,8 @@ import java.io.*;
 import java.lang.reflect.Field;
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
-<<<<<<< HEAD
-=======
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
->>>>>>> master
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -231,8 +228,6 @@ public class ExcelUtil<T> {
                         } else if (val instanceof Double) {
                             val = DateUtil.getJavaDate((Double) val);
                         }
-<<<<<<< HEAD
-=======
                     } else if (LocalDateTime.class == fieldType) {
 
                         if (val instanceof String) {
@@ -241,7 +236,6 @@ public class ExcelUtil<T> {
                             val = DateUtil.getJavaDate((Double) val);
                         }
                         log.info("加载excel LocalDateTime" + val);
->>>>>>> master
                     } else if (Boolean.TYPE == fieldType || Boolean.class == fieldType) {
                         val = Convert.toBool(val, false);
                     }
@@ -531,22 +525,16 @@ public class ExcelUtil<T> {
                 // 用于读取对象中的属性
                 Object value = getTargetValue(vo, field, attr);
                 String dateFormat = attr.dateFormat();
-<<<<<<< HEAD
-=======
                 String localDateTimeFormat = attr.localDateTimeFormat();
->>>>>>> master
                 String readConverterExp = attr.readConverterExp();
                 String separator = attr.separator();
                 String dictType = attr.dictType();
                 if (StringUtils.isNotEmpty(dateFormat) && StringUtils.isNotNull(value)) {
                     cell.setCellValue(DateUtils.parseDateToStr(dateFormat, (Date) value));
-<<<<<<< HEAD
-=======
                 }
                 if (StringUtils.isNotEmpty(localDateTimeFormat) && StringUtils.isNotNull(value)) {
                     LocalDateTime tmp = (LocalDateTime) value;
                     cell.setCellValue(DateUtils.parseDateToStr(localDateTimeFormat, Date.from(tmp.toInstant(ZoneOffset.of("+8")))));
->>>>>>> master
                 } else if (StringUtils.isNotEmpty(readConverterExp) && StringUtils.isNotNull(value)) {
                     cell.setCellValue(convertByExp(Convert.toStr(value), readConverterExp, separator));
                 } else if (StringUtils.isNotEmpty(dictType) && StringUtils.isNotNull(value)) {

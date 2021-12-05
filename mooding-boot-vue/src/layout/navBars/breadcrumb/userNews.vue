@@ -118,7 +118,7 @@ export default {
       opacity: 1;
     }
   }
-  ::v-deep(.el-empty__description p) {
+  :deep(.el-empty__description p) {
     font-size: 13px;
   }
 }

@@ -15,10 +15,7 @@ import cn.mooding.modules.system.service.ISysPostService;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-<<<<<<< HEAD
-=======
 import io.swagger.annotations.Api;
->>>>>>> master
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -38,10 +35,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/system/post")
-<<<<<<< HEAD
-=======
 @Api(tags = "系统岗位")
->>>>>>> master
 public class SysPostController {
     @Autowired
     private ISysPostService postService;

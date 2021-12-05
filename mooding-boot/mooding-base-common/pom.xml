@@ -39,13 +39,10 @@
             <artifactId>kaptcha</artifactId>
             <version>2.3.2</version>
         </dependency>
-<<<<<<< HEAD
-=======
         <!--mail-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-mail</artifactId>
         </dependency>
->>>>>>> master
     </dependencies>
 </project>
