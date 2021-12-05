@@ -59,6 +59,10 @@
         <commons.io.version>2.5</commons.io.version>
         <!--文件上传工具类 -->
         <commons.fileupload.version>1.3.3</commons.fileupload.version>
+        <!-- jasypt核心依赖 -->
+        <jasypt.version>2.1.1</jasypt.version>
+        <!--数据库版本管理、持续集成-->
+        <liquibase.version>4.6.2</liquibase.version>
     </properties>
 
     <dependencies>
@@ -254,9 +258,15 @@
         <dependency>
             <groupId>com.github.ulisesbocchio</groupId>
             <artifactId>jasypt-spring-boot-starter</artifactId>
-            <version>2.1.0</version>
+            <version>${jasypt.version}</version>
         </dependency>
 
+        <!--数据库版本管理、持续集成-->
+        <dependency>
+            <groupId>org.liquibase</groupId>
+            <artifactId>liquibase-core</artifactId>
+            <version>${liquibase.version}</version>
+        </dependency>
     </dependencies>
 
     <!-- <build>

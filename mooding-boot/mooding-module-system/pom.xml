@@ -29,6 +29,12 @@
             <version>1.14.2</version>
 
         </dependency>
+
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.5.13</version>
+        </dependency>
         <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
@@ -46,16 +52,54 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-               <!-- <executions>
-                    <execution>
-                        <id>repackage</id>
-                        <configuration>
-                            <executable>true</executable>
-                            <classifier>exec</classifier>
-                        </configuration>
-                    </execution>
-                </executions>-->
+                <!-- <executions>
+                     <execution>
+                         <id>repackage</id>
+                         <configuration>
+                             <executable>true</executable>
+                             <classifier>exec</classifier>
+                         </configuration>
+                     </execution>
+                 </executions>-->
             </plugin>
+            <plugin>
+                <!--start with basic information to get Liquibase plugin:
+                include <groupId>, <artifactID>, and <version> elements-->
+                <groupId>org.liquibase</groupId>
+                <artifactId>liquibase-maven-plugin</artifactId>
+                <version>4.6.2</version>
+                <configuration>
+                    <!--properties文件路径，该文件记录了数据库连接信息等-->
+                    <propertyFile>src/main/resources/liquibase/liquibase.properties</propertyFile>
+                    <propertyFileWillOverride>true</propertyFileWillOverride>
+                    <!--生成文件的路径-->
+                    <outputChangeLogFile>src/main/resources/liquibase/changelogs/inti-data.xml</outputChangeLogFile>
+                    <!--也可在这里配置-->
+                    <!-- <driver>com.mysql.jdbc.Driver</driver>
+                   <url>jdbc:mysql://localhost:3306/test?useUnicode=true&amp;characterEncoding=utf-8</url>
+                   <username>root</username>
+                   <password>egova</password>-->
+                    <!-- 是否需要弹出确认框 -->
+                    <promptOnNonLocalDatabase>false</promptOnNonLocalDatabase>
+                    <!--输出文件的编码 -->
+                    <outputFileEncoding>UTF-8</outputFileEncoding>
+                    <!--执行的时候是否显示详细的参数信息 -->
+                    <verbose>true</verbose>
+                    <!--是否每次都重新加载properties -->
+                    <propertyFileWillOverride>true</propertyFileWillOverride>
+                    <rollbackTag>${project.version}</rollbackTag>
+                    <tag>${project.version}</tag>
+                </configuration>
+                <dependencies>
+                    <!--set up any dependencies for Liquibase to function in your environment for example, a database-specific plugin-->
+                    <dependency>
+                        <groupId>com.h2database</groupId>
+                        <artifactId>h2</artifactId>
+                        <version>1.4.199</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+
         </plugins>
     </build>
 </project>
