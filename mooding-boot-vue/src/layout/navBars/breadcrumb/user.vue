@@ -107,7 +107,7 @@
     >
       <span class="layout-navbars-breadcrumb-user-link">
         <img
-          :src="getUserInfos.avatar"
+          :src="getUserAvatar"
           :alt="getUserInfos.userName"
           class="layout-navbars-breadcrumb-user-link-photo mr5"
         />
@@ -162,6 +162,10 @@ export default {
     // 获取用户信息 vuex
     const getUserInfos = computed(() => {
       return store.state.userInfos.userInfos;
+    });
+    // 获取用户头像 vuex
+    const getUserAvatar = computed(() => {
+      return store.state.userInfos.avatar;
     });
     // 获取布局配置信息
     const getThemeConfig = computed(() => {
@@ -299,6 +303,7 @@ export default {
     });
     return {
       getUserInfos,
+      getUserAvatar,
       onLayoutSetingClick,
       onHandleCommandClick,
       onScreenfullClick,
@@ -345,16 +350,16 @@ export default {
       }
     }
   }
-  ::v-deep(.el-dropdown) {
+  :deep(.el-dropdown) {
     color: var(--bg-topBarColor);
   }
-  ::v-deep(.el-badge) {
+  :deep(.el-badge) {
     height: 40px;
     line-height: 40px;
     display: flex;
     align-items: center;
   }
-  ::v-deep(.el-badge__content.is-fixed) {
+  :deep(.el-badge__content.is-fixed) {
     top: 12px;
   }
 }

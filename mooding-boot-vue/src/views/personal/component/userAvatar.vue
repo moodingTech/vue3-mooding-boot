@@ -15,18 +15,6 @@
       @opened="modalOpened"
       @close="closeDialog()"
     >
-      <!-- <el-upload
-        class="avatar-uploader"
-        action="/api/common/uploadImg"
-        ref="input"
-        :show-file-list="false"
-        :on-success="handleAvatarSuccess"
-        :before-upload="beforeAvatarUpload"
-      >
-        <img v-if="imageUrl" :src="imageUrl" class="avatar" />
-        <i v-else class="el-icon-plus avatar-uploader-icon"></i>
-      </el-upload> -->
-
       <el-row>
         <el-col :xs="24" :md="12" :style="{ height: '350px' }">
           <vue-cropper
@@ -101,6 +89,7 @@ import VueCropper from "vue-cropperjs";
 import "cropperjs/dist/cropper.css";
 import { store } from "@/store";
 import { uploadAvatar } from "@/api/system/user";
+import { ElMessage } from "element-plus";
 export default {
   components: { VueCropper },
   data() {
@@ -112,11 +101,17 @@ export default {
       // 弹出层标题
       title: "修改头像",
       options: {
-        img: "https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2151087692,2403206573&fm=26&gp=0.jpg", //裁剪图片的地址
+        img: store.state.userInfos.avatar, //裁剪图片的地址
       },
       previews: {},
       cropImg: null,
-      imageUrl: store.state.userInfos.userInfos.avatar, //裁剪图片的地址
+      imageUrl: store.state.userInfos.avatar.replace(
+        "https://gitee.com",
+        "/gitee"
+      ),
+      // "/gitee/dlisnow/personal-repo/raw/master/upload/mooding/img/2021-12/20211204103713.jpg", //裁剪图片的地址
+      // https://gitee.com/dlisnow/personal-repo/raw/master/upload/mooding/img/2021-12/20211204114411.jpg
+      //  "https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2151087692,2403206573&fm=26&gp=0.jpg"
     };
   },
   methods: {
@@ -126,11 +121,11 @@ export default {
     },
     // 关闭窗口
     closeDialog() {
-      this.options.img = store.state.userInfos.userInfos.avatar;
+      this.options.img = store.state.userInfos.avatar;
       this.visible = false;
     },
     handleAvatarSuccess(res, file) {
-      console.log("上传成功", file);
+      // console.log("上传成功", file);
       this.imageUrl = URL.createObjectURL(file.raw);
     },
     beforeAvatarUpload(file) {
@@ -159,12 +154,15 @@ export default {
       this.cropImg = this.$refs.cropper.getCroppedCanvas().toDataURL();
       // base64转blob
       let formData = new FormData();
-      formData.append("avatarfile", this.dataURLtoFile(this.cropImg, "test.jpg"));
+      formData.append(
+        "avatarfile",
+        this.dataURLtoFile(this.cropImg, "test.jpg")
+      );
       uploadAvatar(formData).then((response) => {
         this.open = false;
-        this.options.img = process.env.VUE_APP_BASE_API + response.imgUrl;
-        store.commit("SET_AVATAR", this.options.img);
-        this.msgSuccess("修改成功");
+        this.options.img = response.data.imgUrl;
+        store.dispatch("userInfos/setAvatar", this.options.img);
+        ElMessage.success("修改成功");
         this.visible = false;
       });
     },
@@ -198,7 +196,7 @@ export default {
       );
     },
     setImage(e) {
-      console.log("改变图片", e);
+      // console.log("改变图片", e);
       const file = e;
       if (file.type.indexOf("image/") === -1) {
         alert("Please select an image file");

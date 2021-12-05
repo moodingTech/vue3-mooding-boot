@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.1.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+    <changeSet author="Administrator (generated)" id="1638707039596-1">
+        <insert tableName="qrtz_cron_triggers">
+            <column name="sched_name" value="MoodingScheduler"/>
+            <column name="trigger_name" value="TASK_CLASS_NAME4"/>
+            <column name="trigger_group" value="DEFAULT"/>
+            <column name="cron_expression" value="0/15 * * * * ?"/>
+            <column name="time_zone_id" value="Asia/Shanghai"/>
+        </insert>
+        <insert tableName="qrtz_cron_triggers">
+            <column name="sched_name" value="MoodingScheduler"/>
+            <column name="trigger_name" value="TASK_CLASS_NAME5"/>
+            <column name="trigger_group" value="SYSTEM"/>
+            <column name="cron_expression" value="0/10 * * * * ?"/>
+            <column name="time_zone_id" value="Asia/Shanghai"/>
+        </insert>
+    </changeSet>
+    <changeSet author="Administrator (generated)" id="1638707039596-2">
+        <insert tableName="qrtz_job_details">
+            <column name="sched_name" value="MoodingScheduler"/>
+            <column name="job_name" value="TASK_CLASS_NAME4"/>
+            <column name="job_group" value="DEFAULT"/>
+            <column name="description"/>
+            <column name="job_class_name" value="cn.mooding.modules.quartz.utils.QuartzJobExecution"/>
+            <column name="is_durable" value="0"/>
+            <column name="is_nonconcurrent" value="0"/>
+            <column name="is_update_data" value="0"/>
+            <column name="requests_recovery" value="0"/>
+            <column name="job_data" valueComputed="UNSUPPORTED FOR DIFF: BINARY DATA"/>
+        </insert>
+        <insert tableName="qrtz_job_details">
+            <column name="sched_name" value="MoodingScheduler"/>
+            <column name="job_name" value="TASK_CLASS_NAME5"/>
+            <column name="job_group" value="SYSTEM"/>
+            <column name="description"/>
+            <column name="job_class_name" value="cn.mooding.modules.quartz.utils.QuartzJobExecution"/>
+            <column name="is_durable" value="0"/>
+            <column name="is_nonconcurrent" value="0"/>
+            <column name="is_update_data" value="0"/>
+            <column name="requests_recovery" value="0"/>
+            <column name="job_data" valueComputed="UNSUPPORTED FOR DIFF: BINARY DATA"/>
+        </insert>
+    </changeSet>
+    <changeSet author="Administrator (generated)" id="1638707039596-3">
+        <insert tableName="qrtz_locks">
+            <column name="sched_name" value="MoodingScheduler"/>
+            <column name="lock_name" value="STATE_ACCESS"/>
+        </insert>
+        <insert tableName="qrtz_locks">
+            <column name="sched_name" value="MoodingScheduler"/>
+            <column name="lock_name" value="TRIGGER_ACCESS"/>
+        </insert>
+    </changeSet>
+    <changeSet author="Administrator (generated)" id="1638707039596-4">
+        <insert tableName="qrtz_scheduler_state">
+            <column name="sched_name" value="MoodingScheduler"/>
+            <column name="instance_name" value="CN04L02010007321638587356220"/>
+            <column name="last_checkin_time" valueNumeric="1638666624684"/>
+            <column name="checkin_interval" valueNumeric="15000"/>
+        </insert>
+    </changeSet>
+    <changeSet author="Administrator (generated)" id="1638707039596-5">
+        <insert tableName="qrtz_triggers">
+            <column name="sched_name" value="MoodingScheduler"/>
+            <column name="trigger_name" value="TASK_CLASS_NAME4"/>
+            <column name="trigger_group" value="DEFAULT"/>
+            <column name="job_name" value="TASK_CLASS_NAME4"/>
+            <column name="job_group" value="DEFAULT"/>
+            <column name="description"/>
+            <column name="next_fire_time" valueNumeric="1627339740000"/>
+            <column name="prev_fire_time" valueNumeric="1627339725000"/>
+            <column name="priority" valueNumeric="5"/>
+            <column name="trigger_state" value="PAUSED"/>
+            <column name="trigger_type" value="CRON"/>
+            <column name="start_time" valueNumeric="1627311243000"/>
+            <column name="end_time" valueNumeric="0"/>
+            <column name="calendar_name"/>
+            <column name="misfire_instr" valueNumeric="-1"/>
+            <column name="job_data" valueComputed="UNSUPPORTED FOR DIFF: BINARY DATA"/>
+        </insert>
+        <insert tableName="qrtz_triggers">
+            <column name="sched_name" value="MoodingScheduler"/>
+            <column name="trigger_name" value="TASK_CLASS_NAME5"/>
+            <column name="trigger_group" value="SYSTEM"/>
+            <column name="job_name" value="TASK_CLASS_NAME5"/>
+            <column name="job_group" value="SYSTEM"/>
+            <column name="description"/>
+            <column name="next_fire_time" valueNumeric="1627346940000"/>
+            <column name="prev_fire_time" valueNumeric="1627346930000"/>
+            <column name="priority" valueNumeric="5"/>
+            <column name="trigger_state" value="PAUSED"/>
+            <column name="trigger_type" value="CRON"/>
+            <column name="start_time" valueNumeric="1627341407000"/>
+            <column name="end_time" valueNumeric="0"/>
+            <column name="calendar_name"/>
+            <column name="misfire_instr" valueNumeric="-1"/>
+            <column name="job_data" valueComputed="UNSUPPORTED FOR DIFF: BINARY DATA"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

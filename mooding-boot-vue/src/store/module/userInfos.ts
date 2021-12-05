@@ -68,9 +68,13 @@ const userInfosModule: Module<UserInfosState, RootStateTypes> = {
                     const user = res.data.user
                     let avatar = "";
 
-                    if (!user.avatar || user.avatar == '') {                  
+                    // 如果头像为空则给与默认头像
+                    if (!user.avatar || user.avatar == '') {
                         user.avatar = 'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1813762643,1914315241&fm=26&gp=0.jpg';
+                    } else {
+                        avatar = user.avatar;
                     }
+
                     // const avatar = user.avatar == '' ? user.avatar : 'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1813762643,1914315241&fm=26&gp=0.jpg';
                     // const avatar = user.avatar == "" ? require("@/assets/image/profile.jpg") : process.env.VUE_APP_BASE_API + user.avatar;
                     if (res.data.roles && res.data.roles.length > 0) { // 验证返回的roles是否是一个非空数组
@@ -102,6 +106,10 @@ const userInfosModule: Module<UserInfosState, RootStateTypes> = {
             })
         },
 
+        // 设置头像
+        setAvatar({ commit }, data: object) {
+            commit('SET_AVATAR', data);
+        },
         // 前端 登出
         FedLogOut({ commit }) {
             return new Promise(resolve => {

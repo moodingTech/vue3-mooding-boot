@@ -8,7 +8,7 @@ import { RouteRecordRaw } from 'vue-router';
 
 
 const whiteList: string[] = ['/login', '/captchaImage'] // 不重定向白名单
-router.beforeEach((to, from, next) => {
+router.beforeEach((to:any, from :any, next:any) => {
     NProgress.configure({ showSpinner: false });
     if (to.meta.title) NProgress.start();
     const token = Session.get('token');
@@ -20,10 +20,10 @@ router.beforeEach((to, from, next) => {
         } else {
             if (store.state.userInfos.roles.length === 0) {
                 // 判断当前用户是否已拉取完user_info信息
-                store.dispatch('userInfos/GetInfo').then(res => {
+                store.dispatch('userInfos/GetInfo').then((res :any) => {
                     // 拉取user_info
                     const roles = res.roles
-                    store.dispatch('permissionRoute/GenerateRoutes', { roles }).then(accessRoutes => {
+                    store.dispatch('permissionRoute/GenerateRoutes', { roles }).then((accessRoutes :any) => {
                         formatTwoStageRoutes(formatFlatteningRoutes(accessRoutes)).forEach((routeTmp: RouteRecordRaw) => {
                             const routeName: any = routeTmp.name;
                             if (!router.hasRoute(routeName)) router.addRoute(routeTmp);
@@ -37,7 +37,7 @@ router.beforeEach((to, from, next) => {
                         next({ ...to, replace: true }) // hack方法 确保addRoutes已完成
                     })
                 })
-                    .catch(err => {
+                    .catch((err:any) => {
                         store.dispatch('userInfos/FedLogOut').then(() => {
                             // Message.error(err)
                             console.log(err)

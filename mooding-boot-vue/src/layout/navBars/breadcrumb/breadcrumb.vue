@@ -125,7 +125,7 @@ export default {
 		font-size: 14px;
 		margin-right: 5px;
 	}
-	::v-deep(.el-breadcrumb__separator) {
+	:deep(.el-breadcrumb__separator) {
 		opacity: 0.7;
 		color: var(--bg-topBarColor);
 	}
