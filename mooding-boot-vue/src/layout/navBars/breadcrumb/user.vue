@@ -117,7 +117,7 @@
       <template #dropdown>
         <el-dropdown-menu>
           <el-dropdown-item command="/home">首页</el-dropdown-item>
-          <el-dropdown-item command="wareHouse">代码仓库</el-dropdown-item>
+          <!-- <el-dropdown-item command="wareHouse">代码仓库</el-dropdown-item> -->
           <el-dropdown-item command="/personal">个人中心</el-dropdown-item>
           <el-dropdown-item command="/404">404</el-dropdown-item>
           <el-dropdown-item command="/401">401</el-dropdown-item>
@@ -236,7 +236,6 @@ export default {
           })
           .catch(() => {});
       } else if (path === "wareHouse") {
-
         window.open("https://gitee.com/moodingtech/vue3-mooding-boot");
       } else {
         router.push(path);
