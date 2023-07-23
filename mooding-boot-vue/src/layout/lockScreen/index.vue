@@ -331,11 +331,11 @@ export default defineComponent({
 		}
 	}
 }
-::v-deep(.el-input-group__append) {
+:deep(.el-input-group__append) {
 	background: #ffffff;
 	padding: 0px 15px;
 }
-::v-deep(.el-input__inner) {
+:deep(.el-input__inner) {
 	border-right-color: #f6f6f6;
 	&:hover {
 		border-color: #f6f6f6;
