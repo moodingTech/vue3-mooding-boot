@@ -1,18 +1,17 @@
 package cn.mooding.modules.system.entity;
 
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableName;
+import cn.mooding.common.model.BaseEntity;
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
-import java.time.LocalDateTime;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-
+import com.baomidou.mybatisplus.annotation.TableName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * <p>
@@ -25,10 +24,8 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @TableName("t_sys_menu")
-@ApiModel(value="SysMenu对象", description="菜单权限表")
-public class SysMenu implements Serializable {
-
-    private static final long serialVersionUID = 1L;
+@ApiModel(value = "SysMenu对象", description = "菜单权限表")
+public class SysMenu extends BaseEntity {
 
     @ApiModelProperty(value = "菜单ID")
     @TableId(value = "menu_id", type = IdType.AUTO)
@@ -76,22 +73,12 @@ public class SysMenu implements Serializable {
     @ApiModelProperty(value = "菜单状态（0正常 1停用）")
     private String status;
 
-    @ApiModelProperty(value = "创建者")
-    private String createBy;
-
-    @ApiModelProperty(value = "创建时间")
-    private LocalDateTime createTime;
-
-    @ApiModelProperty(value = "更新者")
-    private String updateBy;
-
-    @ApiModelProperty(value = "更新时间")
-    private LocalDateTime updateTime;
-
     @ApiModelProperty(value = "备注")
     private String remark;
 
-    /** 子菜单 */
+    /**
+     * 子菜单
+     */
     @TableField(exist = false)
     @ApiModelProperty(value = "子菜单")
     private List<SysMenu> children = new ArrayList<SysMenu>();

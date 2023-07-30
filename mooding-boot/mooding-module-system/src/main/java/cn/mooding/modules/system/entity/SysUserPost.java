@@ -1,11 +1,12 @@
 package cn.mooding.modules.system.entity;
 
 import com.baomidou.mybatisplus.annotation.TableName;
-import java.io.Serializable;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+
+import java.io.Serializable;
 
 /**
  * <p>
@@ -18,7 +19,7 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @TableName("t_sys_user_post")
-@ApiModel(value="SysUserPost对象", description="用户与岗位关联表")
+@ApiModel(value = "SysUserPost对象", description = "用户与岗位关联表")
 public class SysUserPost implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -28,10 +29,5 @@ public class SysUserPost implements Serializable {
 
     @ApiModelProperty(value = "岗位ID")
     private Long postId;
-
-
-    public static final String USER_ID = "user_id";
-
-    public static final String POST_ID = "post_id";
 
 }

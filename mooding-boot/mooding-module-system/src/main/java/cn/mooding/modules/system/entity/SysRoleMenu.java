@@ -29,9 +29,4 @@ public class SysRoleMenu implements Serializable {
     @ApiModelProperty(value = "菜单ID")
     private Long menuId;
 
-
-    public static final String ROLE_ID = "role_id";
-
-    public static final String MENU_ID = "menu_id";
-
 }

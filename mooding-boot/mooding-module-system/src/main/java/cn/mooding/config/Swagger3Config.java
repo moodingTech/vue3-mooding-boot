@@ -30,6 +30,7 @@ public class Swagger3Config {
      * application-version: 1.0
      * application-description: springfox swagger 3.0整合Demo
      * try-host: http://localhost:${server.port}
+     * http://localhost:8081/api/doc.html#
      */
     /** 是否开启swagger */
     @Value("${swagger.swaggerEnabled}")

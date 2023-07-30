@@ -52,7 +52,7 @@
         <!-- 解析客户端操作系统、浏览器等 -->
         <bitwalker.version>1.21</bitwalker.version>
         <!-- 获取系统信息 -->
-        <oshi.version>5.6.0</oshi.version>
+        <oshi.version>6.4.3</oshi.version>
         <!-- excel工具 -->
         <poi.version>4.1.2</poi.version>
         <!--io常用工具类 -->

@@ -1,11 +1,9 @@
 package cn.mooding.common.utils.string;
 
-import cn.mooding.common.model.BaseEntity;
 import cn.mooding.common.model.constant.Constants;
 
 import java.lang.reflect.Field;
 import java.util.*;
-import java.util.stream.Collectors;
 
 /**
  * 字符串工具类
@@ -443,23 +441,6 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
         return fields;
     }
 
-    /**
-     *
-     */
-    private void entityToArry() {
-        // 获取集合
-        List<BaseEntity> dictEntityList = new ArrayList<BaseEntity>();
-        // 取出属性为集合
-        List<String> stateNameList = dictEntityList.stream().map(BaseEntity::getRemark).collect(Collectors.toList());
-        //去除不满足条件的元素
-        List<BaseEntity> collect = dictEntityList.stream().filter(w -> !w.getRemark().equals("5")).collect(Collectors.toList());
-        //取出属性为数组
-        Long[] ids = dictEntityList.stream().map(BaseEntity::getUpdateBy).toArray(Long[]::new);
-        //集合去重
-        dictEntityList.stream().distinct().collect(Collectors.toList());
-
-
-    }
     /**
      * 是否为http(s)://开头
      *
