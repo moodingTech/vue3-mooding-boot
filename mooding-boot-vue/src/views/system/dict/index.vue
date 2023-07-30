@@ -151,12 +151,13 @@
         :show-overflow-tooltip="true"
       >
         <template #default="scope">
-          <router-link
+          <!-- <router-link
             :to="'/dict/type/data/' + scope.row.dictId"
             class="link-type"
           >
             <span>{{ scope.row.dictType }}</span>
-          </router-link>
+          </router-link> -->
+          <span>{{ scope.row.dictType }}</span>
         </template>
       </el-table-column>
       <el-table-column

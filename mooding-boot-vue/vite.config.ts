@@ -39,14 +39,12 @@ const viteConfig: UserConfig = {
         open: VITE_OPEN,
         proxy: {
             '/api': {
-                target: 'http://49.235.52.198:8081/api',
-                // target: 'http://127.0.0.1:8081/api',
+                target: 'http://127.0.0.1:8081/api',
                 ws: true,
                 changeOrigin: true,
                 rewrite: (path) => path.replace(/^\/api/, ''),
             },
             '/test': {
-                // target: 'http://49.235.52.198:8081/api',
                 target: 'https://view.inews.qq.com',
                 ws: true,
                 changeOrigin: true,

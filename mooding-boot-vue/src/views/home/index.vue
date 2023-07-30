@@ -21,7 +21,15 @@
         <p>
           <el-tag type="danger">&yen;免费开源</el-tag>
         </p>
-        <p>          
+        <p>
+          <el-button
+            type="primary"
+            size="mini"
+            icon="el-icon-cloudy"
+            plain
+            @click="goTarget('https://gitee.com/moodingtech/vue3-mooding-boot')"
+            >访问码云</el-button
+          >
           <el-button
             size="mini"
             icon="el-icon-s-home"
