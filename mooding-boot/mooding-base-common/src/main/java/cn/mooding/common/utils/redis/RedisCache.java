@@ -1,6 +1,7 @@
 package cn.mooding.common.utils.redis;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.*;
 import org.springframework.stereotype.Component;
 
@@ -20,6 +21,7 @@ public class RedisCache {
 
     /**
      * 缓存基本的对象，Integer、String、实体类等
+     *
      * @param key   缓存的键值
      * @param value 缓存的值
      * @return 缓存的对象
@@ -32,6 +34,7 @@ public class RedisCache {
 
     /**
      * 缓存基本的对象，Integer、String、实体类等
+     *
      * @param key      缓存的键值
      * @param value    缓存的值
      * @param timeout  时间
@@ -46,6 +49,7 @@ public class RedisCache {
 
     /**
      * 获得缓存的基本对象。
+     *
      * @param key 缓存键值
      * @return 缓存键值对应的数据
      */
@@ -56,6 +60,7 @@ public class RedisCache {
 
     /**
      * 删除单个对象
+     *
      * @param key
      */
     public void deleteObject(String key) {
@@ -64,6 +69,7 @@ public class RedisCache {
 
     /**
      * 删除集合对象
+     *
      * @param collection
      */
     public void deleteObject(Collection collection) {
@@ -72,6 +78,7 @@ public class RedisCache {
 
     /**
      * 缓存List数据
+     *
      * @param key      缓存的键值
      * @param dataList 待缓存的List数据
      * @return 缓存的对象
@@ -89,6 +96,7 @@ public class RedisCache {
 
     /**
      * 获得缓存的list对象
+     *
      * @param key 缓存的键值
      * @return 缓存键值对应的数据
      */
@@ -105,6 +113,7 @@ public class RedisCache {
 
     /**
      * 缓存Set
+     *
      * @param key     缓存键值
      * @param dataSet 缓存的数据
      * @return 缓存数据的对象
@@ -120,6 +129,7 @@ public class RedisCache {
 
     /**
      * 获得缓存的set
+     *
      * @param key
      * @return
      */
@@ -132,6 +142,7 @@ public class RedisCache {
 
     /**
      * 缓存Map
+     *
      * @param key
      * @param dataMap
      * @return
@@ -148,6 +159,7 @@ public class RedisCache {
 
     /**
      * 获得缓存的Map
+     *
      * @param key
      * @return
      */
@@ -158,6 +170,7 @@ public class RedisCache {
 
     /**
      * 获得缓存的基本对象列表
+     *
      * @param pattern 字符串前缀
      * @return 对象列表
      */

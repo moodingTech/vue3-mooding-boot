@@ -150,6 +150,7 @@ spring:
        shutdown-timeout: 100ms
      password: ''
      port: 6379
+     prefixKey: 'moodingBoot-test:'
 #mybatis plus 设置
 mybatis-plus:
    mapper-locations: classpath*:org/mooding/modules/**/xml/*Mapper.xml

@@ -101,6 +101,7 @@ spring:
     timeout: 5000
     #默认是索引为0的数据库
     database: 0
+    prefixKey: 'moodingBoot-prod:'
   mail:
     host: smtp.126.com
     username: moodingtech@126.com
